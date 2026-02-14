@@ -1,7 +1,9 @@
-import { FOOD_DATA } from './data.js';
+import { fetchMenuData } from './sheets.js';
+
+let FOOD_DATA = null;
 
 // Random item picker
-const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getRandom = (arr) => arr && arr.length ? arr[Math.floor(Math.random() * arr.length)] : 'No Data';
 
 // DOM Elements
 const els = {
@@ -24,10 +26,13 @@ const els = {
     fruitName: document.getElementById('fruit-name'),
 
     regenerateBtn: document.getElementById('regenerate-btn'),
-    cards: document.querySelectorAll('.menu-card')
+    cards: document.querySelectorAll('.menu-card'),
+    loading: document.getElementById('loading-overlay')
 };
 
 function updateSlot(nameEl, recipeEl, itemName) {
+    if (!FOOD_DATA) return;
+
     // Animate text update
     nameEl.style.opacity = '0';
 
@@ -35,7 +40,7 @@ function updateSlot(nameEl, recipeEl, itemName) {
         nameEl.textContent = itemName;
         nameEl.style.opacity = '1';
 
-        // Check for recipe
+        // Check for recipe/image/ingredients
         const recipe = FOOD_DATA.recipes[itemName] ||
             FOOD_DATA.recipes[itemName.split(',')[0].trim()]; // Try partial match
 
@@ -43,12 +48,21 @@ function updateSlot(nameEl, recipeEl, itemName) {
             recipeEl.href = recipe.url;
             recipeEl.classList.remove('hidden');
         } else {
-            recipeEl.classList.add('hidden');
+            if (recipeEl.classList && recipeEl.classList.add) {
+                recipeEl.classList.add('hidden');
+            }
+        }
+
+        // Future: Handle Image and Ingredients display here
+        if (recipe && recipe.image) {
+            // Logic to show image (e.g. set background of card or separate img tag)
         }
     }, 200);
 }
 
 function generateMenu() {
+    if (!FOOD_DATA) return;
+
     // Re-trigger card animations
     els.cards.forEach(card => {
         card.style.animation = 'none';
@@ -76,14 +90,31 @@ function generateMenu() {
 
     // 4. Extras
     const extra = getRandom(FOOD_DATA.extras);
-    updateSlot(els.extraName, { classList: { add: () => { }, remove: () => { } } }, extra); // No recipe slot for extras yet
+    updateSlot(els.extraName, { classList: { add: () => { }, remove: () => { } } }, extra);
 
     const fruit = getRandom(FOOD_DATA.fruits);
     updateSlot(els.fruitName, { classList: { add: () => { }, remove: () => { } } }, fruit);
+}
+
+async function init() {
+    els.regenerateBtn.disabled = true;
+    els.regenerateBtn.textContent = 'Loading Menu...';
+
+    const data = await fetchMenuData();
+
+    if (data) {
+        FOOD_DATA = data;
+        els.regenerateBtn.disabled = false;
+        els.regenerateBtn.innerHTML = '<span class="icon">✨</span> Generate New Menu';
+        generateMenu();
+    } else {
+        els.regenerateBtn.textContent = 'Error Loading Data';
+        alert('Failed to load menu data. Please check connection.');
+    }
 }
 
 // Event Listeners
 els.regenerateBtn.addEventListener('click', generateMenu);
 
 // Initial Load
-window.addEventListener('DOMContentLoaded', generateMenu);
+window.addEventListener('DOMContentLoaded', init);

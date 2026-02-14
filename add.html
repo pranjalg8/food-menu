@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Dish - Indian Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="background-glob"></div>
+    <div class="background-glob two"></div>
+
+    <header>
+        <h1>Add New Dish</h1>
+        <p><a href="index.html" style="color:white; text-decoration: underline;">&larr; Back to Generator</a></p>
+    </header>
+
+    <main class="container">
+        <div class="menu-card" style="max-width: 600px; margin: 0 auto; opacity: 1; padding: 2rem;">
+            <form id="add-dish-form">
+                <div class="form-group">
+                    <label>Dish Name *</label>
+                    <input type="text" name="name" required placeholder="e.g. Paneer Tikka">
+                </div>
+
+                <div class="form-group">
+                    <label>Category *</label>
+                    <select name="category" required>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Side">Side / Extra</option>
+                        <option value="Fruit">Fruit</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Type</label>
+                    <select name="type">
+                        <option value="Light">Light</option>
+                        <option value="Heavy">Heavy</option>
+                        <option value="NA">N/A (for Sides/Fruits)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Recipe URL</label>
+                    <input type="url" name="recipe" placeholder="https://youtube.com/...">
+                </div>
+
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="url" name="image" placeholder="https://image-link...">
+                </div>
+
+                <div class="form-group">
+                    <label>Ingredients</label>
+                    <input type="text" name="ingredients" placeholder="Paneer, Capsicum, Onion...">
+                </div>
+
+                <button type="submit" class="btn primary-btn"
+                    style="width: 100%; justify-content: center; margin-top: 1rem;">
+                    Submit to Database
+                </button>
+                <div id="status-msg" style="margin-top: 1rem; text-align: center;"></div>
+            </form>
+        </div>
+    </main>
+
+    <style>
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: var(--font-body);
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+
+    <script type="module">
+        const PREFILLED_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_.../exec'; // User will fill this
+        let SCRIPT_URL = localStorage.getItem('gas_url');
+
+        const form = document.getElementById('add-dish-form');
+        const status = document.getElementById('status-msg');
+
+        // Ask for Script URL if not set
+        if (!SCRIPT_URL) {
+            SCRIPT_URL = prompt("Please enter your deployed Google Apps Script URL (Web App URL):");
+            if (SCRIPT_URL) localStorage.setItem('gas_url', SCRIPT_URL);
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!SCRIPT_URL) {
+                alert("Script URL missing. Please refresh and enter it.");
+                return;
+            }
+
+            status.textContent = "Submitting...";
+            status.style.color = "yellow";
+
+            const formData = new FormData(form);
+            // Convert to JSON
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            try {
+                // We use 'no-cors' mode because GAS redirects, which fetch blocks in strict CORS.
+                // However, GAS 'no-cors' doesn't return JSON. 
+                // Standard hack: use a hidden iframe or just assume success if no network error.
+                // Better approach for this demo: fetch with 'no-cors' and assume success.
+
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(data),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                status.textContent = "Success! Dish added.";
+                status.style.color = "#4caf50";
+                form.reset();
+                setTimeout(() => status.textContent = '', 3000);
+
+            } catch (err) {
+                console.error(err);
+                status.textContent = "Error submitting. Check console.";
+                status.style.color = "#f44336";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -225,3 +225,23 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* NEW STYLES */
+.dish-image {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dish-image:not(.hidden) {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
