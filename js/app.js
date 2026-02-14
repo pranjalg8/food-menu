@@ -44,18 +44,38 @@ function updateSlot(nameEl, recipeEl, itemName) {
         const recipe = FOOD_DATA.recipes[itemName] ||
             FOOD_DATA.recipes[itemName.split(',')[0].trim()]; // Try partial match
 
-        if (recipe && recipe.url) {
-            recipeEl.href = recipe.url;
-            recipeEl.classList.remove('hidden');
-        } else {
-            if (recipeEl.classList && recipeEl.classList.add) {
-                recipeEl.classList.add('hidden');
-            }
-        }
+        const imgEl = nameEl.parentElement.querySelector('.dish-image');
+        const ingEl = nameEl.parentElement.querySelector('.ingredients');
 
-        // Future: Handle Image and Ingredients display here
-        if (recipe && recipe.image) {
-            // Logic to show image (e.g. set background of card or separate img tag)
+        // Reset
+        if (imgEl) {
+            imgEl.style.backgroundImage = 'none';
+            imgEl.classList.add('hidden');
+        }
+        if (ingEl) {
+            ingEl.textContent = '';
+            ingEl.classList.add('hidden');
+        }
+        if (recipeEl.classList) recipeEl.classList.add('hidden');
+
+        if (recipe) {
+            // Recipe Link
+            if (recipe.url) {
+                recipeEl.href = recipe.url;
+                recipeEl.classList.remove('hidden');
+            }
+
+            // Image
+            if (recipe.image && imgEl) {
+                imgEl.style.backgroundImage = `url('${recipe.image}')`;
+                imgEl.classList.remove('hidden');
+            }
+
+            // Ingredients
+            if (recipe.ingredients && ingEl) {
+                ingEl.textContent = recipe.ingredients;
+                ingEl.classList.remove('hidden');
+            }
         }
     }, 200);
 }

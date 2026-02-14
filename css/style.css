@@ -245,3 +245,17 @@ footer {
 .hidden {
     display: none !important;
 }
+
+.ingredients {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    margin-top: -0.25rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    display: none;
+}
+
+.ingredients:not(.hidden) {
+    display: block;
+}
