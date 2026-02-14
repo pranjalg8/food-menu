@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Food Menu Generator</title>
+    <meta name="description" content="Generate daily Indian food menus with one click. Recipes included.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍛</text></svg>">
+</head>
+<body>
+    <div class="background-glob"></div>
+    <div class="background-glob two"></div>
+
+    <header>
+        <h1>Indian Menu Generator</h1>
+        <p>What's cooking today?</p>
+    </header>
+
+    <main class="container">
+        <div class="controls">
+            <button id="regenerate-btn" class="btn primary-btn">
+                <span class="icon">✨</span> Generate New Menu
+            </button>
+            <!-- Future: Add Veg/Non-Veg Toggle -->
+        </div>
+
+        <div id="menu-grid" class="menu-grid">
+            <!-- BREAKFAST CARD -->
+            <div class="menu-card breakfast" style="animation-delay: 0.1s">
+                <div class="card-header">
+                    <h2>☕ Breakfast</h2>
+                </div>
+                <div class="card-content">
+                    <div class="option light">
+                        <span class="badge">Light</span>
+                        <h3 id="bf-light-name">Loading...</h3>
+                        <a href="#" id="bf-light-recipe" target="_blank" class="recipe-link hidden">View Recipe ↗</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="option heavy">
+                        <span class="badge">Heavy</span>
+                        <h3 id="bf-heavy-name">Loading...</h3>
+                        <a href="#" id="bf-heavy-recipe" target="_blank" class="recipe-link hidden">View Recipe ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LUNCH CARD -->
+            <div class="menu-card lunch" style="animation-delay: 0.2s">
+                <div class="card-header">
+                    <h2>🍛 Lunch</h2>
+                </div>
+                <div class="card-content">
+                    <div class="option light">
+                        <span class="badge">Light</span>
+                        <h3 id="lunch-light-name">Loading...</h3>
+                        <a href="#" id="lunch-light-recipe" target="_blank" class="recipe-link hidden">View Recipe ↗</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="option heavy">
+                        <span class="badge">Heavy</span>
+                        <h3 id="lunch-heavy-name">Loading...</h3>
+                        <a href="#" id="lunch-heavy-recipe" target="_blank" class="recipe-link hidden">View Recipe ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DINNER CARD -->
+            <div class="menu-card dinner" style="animation-delay: 0.3s">
+                <div class="card-header">
+                    <h2>🥘 Dinner</h2>
+                </div>
+                <div class="card-content">
+                    <div class="option light">
+                        <span class="badge">Light</span>
+                        <h3 id="dinner-light-name">Loading...</h3>
+                        <a href="#" id="dinner-light-recipe" target="_blank" class="recipe-link hidden">View Recipe ↗</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="option heavy">
+                        <span class="badge">Heavy</span>
+                        <h3 id="dinner-heavy-name">Loading...</h3>
+                        <a href="#" id="dinner-heavy-recipe" target="_blank" class="recipe-link hidden">View Recipe ↗</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXTRAS & FRUITS CARD -->
+             <div class="menu-card extras" style="animation-delay: 0.4s">
+                <div class="card-header">
+                    <h2>🥗 Sides & Fruits</h2>
+                </div>
+                <div class="card-content">
+                    <div class="option extra">
+                         <span class="badge">Side Dish</span>
+                        <h3 id="extra-name">Loading...</h3>
+                    </div>
+                     <div class="divider"></div>
+                    <div class="option fruit">
+                        <span class="badge">Fruit</span>
+                        <h3 id="fruit-name">Loading...</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Made with 🌶️ & 💻</p>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
