@@ -1,0 +1,88 @@
+Dish Name	Category	Type	Description	Ingredients	PrepTime	CookTime	Difficulty	Servings	Tags
+Vermicelli (Semiya Upma)	Breakfast	Light	Savory stir-fried vermicelli with vegetables and spices	Vermicelli, Onion, Tomato, Green Chili, Mustard Seeds, Curry Leaves	10	15	Easy	4	South Indian|Quick
+Sabudana Khichdi	Breakfast	Light	Soft pearls of tapioca cooked with peanuts and spices	Sabudana (Tapioca Pearls), Peanuts, Potato, Green Chili, Cumin	30	20	Medium	4	Fasting Food|Gluten-Free
+Upma	Breakfast	Light	Classic South Indian semolina breakfast dish	Semolina (Rava), Onion, Green Chili, Mustard Seeds, Curry Leaves, Cashews	5	15	Easy	4	South Indian|Quick
+Uttapam	Breakfast	Light	Thick savory rice pancake topped with vegetables	Rice, Urad Dal, Onion, Tomato, Green Chili, Coriander	20	15	Medium	4	South Indian|Fermented
+Poha	Breakfast	Light	Fluffed rice flakes stir-fried with spices	Flattened Rice, Onion, Peanuts, Green Chili, Turmeric, Curry Leaves	5	10	Easy	4	Quick|Light
+Vegetable Quinoa	Breakfast	Light	Protein-rich quinoa cooked with colorful vegetables	Quinoa, Mixed Vegetables, Garlic, Olive Oil, Herbs	10	20	Easy	4	Healthy|Protein-Rich
+Fried Idly	Breakfast	Light	Crispy fried idlis seasoned with spices	Idli (leftover), Onion, Green Chili, Mustard Seeds, Curry Leaves, Turmeric	10	10	Easy	4	South Indian|Crispy
+Veg cheese sandwiches (Grilled and Non-Grilled)	Breakfast	Light	Cheesy vegetable sandwich, grilled or toasted	Bread, Cheese, Tomato, Cucumber, Onion, Butter, Green Chutney	10	10	Easy	2	Kids Favorite|Quick
+Sooji Toast	Breakfast	Light	Crispy toast topped with spiced semolina mixture	Bread, Semolina, Onion, Tomato, Green Chili, Coriander	10	15	Easy	4	Fusion|Crispy
+Chilla	Breakfast	Light	Savory Indian gram flour pancake	Besan (Gram Flour), Onion, Tomato, Green Chili, Ajwain, Coriander	10	20	Easy	4	Protein-Rich|Quick
+Kala Desi Chana Boiled, Onion, Tomato cut	Breakfast	Light	Simple boiled black chickpeas with fresh vegetables	Kala Chana (Black Chickpeas), Onion, Tomato, Lemon, Chaat Masala	10	5	Easy	4	Protein-Rich|Healthy
+Aloo Paratha, curd	Breakfast	Heavy	Flaky flatbread stuffed with spiced mashed potatoes	Wheat Flour, Potato, Onion, Green Chili, Ginger, Coriander, Ghee	20	25	Medium	4	North Indian|Filling
+Paneer Paratha, curd	Breakfast	Heavy	Rich flatbread stuffed with spiced cottage cheese	Wheat Flour, Paneer, Onion, Green Chili, Coriander, Ghee	20	25	Medium	4	North Indian|Protein-Rich
+Methi Paratha, chutney	Breakfast	Heavy	Nutritious flatbread with fresh fenugreek leaves	Wheat Flour, Methi (Fenugreek), Green Chili, Ajwain, Ghee	15	20	Easy	4	Healthy|Green
+Pav Bhaji	Breakfast	Heavy	Spicy mashed vegetable curry served with buttered buns	Mixed Vegetables, Pav (Buns), Butter, Pav Bhaji Masala, Onion, Tomato	15	30	Medium	4	Street Food|Mumbai Special
+Idly Sambhar	Breakfast	Heavy	Soft steamed rice cakes served with tangy lentil soup	Rice, Urad Dal, Toor Dal, Vegetables, Tamarind, Sambhar Masala	20	30	Medium	4	South Indian|Healthy
+Chole, Poori	Breakfast	Heavy	Spicy chickpea curry served with deep-fried puffed bread	Chickpeas, Tomato, Onion, Chole Masala, Wheat Flour, Oil	15	40	Medium	4	North Indian|Festive
+Aloo Bhaji, Poori	Breakfast	Heavy	Simple potato curry served with fluffy deep-fried bread	Potato, Onion, Tomato, Turmeric, Cumin, Wheat Flour, Oil	15	30	Easy	4	North Indian|Comfort Food
+Bread Roll	Breakfast	Heavy	Crispy fried rolls stuffed with spiced potato filling	Bread, Potato, Onion, Green Chili, Breadcrumbs, Oil	20	15	Medium	4	Snack|Crispy
+Chole, Bhature	Breakfast	Heavy	North Indian spicy chickpea curry with fluffy fried bread	Chickpeas, Tomato, Chole Masala, Flour, Yogurt, Oil	20	45	Medium	4	North Indian|Indulgent
+Dal Dhokli	Breakfast	Heavy	Gujarati comfort food - wheat dough pieces in spiced lentil soup	Toor Dal, Wheat Flour, Tomato, Peanuts, Jaggery, Tamarind	15	40	Medium	4	Gujarati|Comfort Food
+Stuffed Parathas Paneer/Pyaz/Aloo/Gobhi	Breakfast	Heavy	Variety of stuffed flatbreads with different fillings	Wheat Flour, Choice of Filling (Paneer/Onion/Potato/Cauliflower), Ghee	20	25	Medium	4	North Indian|Versatile
+Masala Dosa, Chutney, Sambhar	Breakfast	Heavy	Crispy rice crepe filled with spiced potato, served with sides	Rice, Urad Dal, Potato, Onion, Mustard Seeds, Curry Leaves	30	25	Medium	4	South Indian|Iconic
+Rajma, Jeera Onion Rice	Lunch	Light	Rich red kidney bean curry served with cumin rice	Kidney Beans, Tomato, Onion, Ginger-Garlic, Rice, Cumin	15	50	Medium	4	North Indian|Protein-Rich
+Jeera Aloo, Dal, Roti	Lunch	Light	Cumin-spiced potatoes with lentils and flatbread	Potato, Cumin, Green Chili, Dal, Wheat Flour	10	25	Easy	4	Simple|Comfort Food
+Aloo Gajar Beans, Dal, Roti	Lunch	Light	Mixed vegetable curry with carrots, beans and potatoes	Potato, Carrot, Beans, Tomato, Dal, Wheat Flour	15	30	Easy	4	Healthy|Colorful
+Aloo Gobhi, Dal, Roti	Lunch	Light	Classic potato and cauliflower dry curry	Potato, Cauliflower, Tomato, Turmeric, Cumin, Dal, Wheat Flour	15	25	Easy	4	North Indian|Popular
+Bhindi, Roti, Dal	Lunch	Light	Crispy okra stir-fry with lentils and flatbread	Okra (Bhindi), Onion, Tomato, Spices, Dal, Wheat Flour	10	20	Easy	4	Healthy|Crispy
+Kadhi, Rice	Lunch	Light	Tangy yogurt-based curry served with steamed rice	Yogurt, Besan, Turmeric, Curry Leaves, Rice	10	30	Medium	4	North Indian|Tangy
+Lauki Kofta, Roti	Lunch	Light	Bottle gourd dumplings in mild curry sauce	Lauki (Bottle Gourd), Besan, Tomato, Onion, Cream, Wheat Flour	25	35	Medium	4	Healthy|Light
+Matar mushroom, Roti	Lunch	Light	Green peas and mushroom curry in spiced gravy	Green Peas, Mushroom, Onion, Tomato, Cream, Spices	15	25	Easy	4	North Indian|Healthy|Light
+Arbi masala, Roti, Dal	Lunch	Light	Comforting lentil soup seasoned with spices	Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee	5	25	Easy	4	Comfort Food|Protein-Rich|Healthy
+Bharwa bhindi, Roti	Lunch	Light	Stuffed okra filled with spiced masala mixture	Okra (Bhindi), Spice Mix, Onion, Amchur, Oil	20	25	Medium	4	North Indian|Stuffed|Special
+Dal, Rice	Lunch	Light	Delicious lunch dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Chole, Rice	Lunch	Heavy	Spicy chickpea curry with aromatic spices	Chickpeas, Onion, Tomato, Ginger-Garlic, Chole Masala	10	30	Easy	4	North Indian|Spicy|Protein-Rich
+Dal makhani, rice	Lunch	Heavy	Delicious lunch dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Medium	4	Homestyle|Vegetarian
+Bharwa shimla mirch, roti	Lunch	Heavy	Bell peppers stuffed with spiced potato filling	Bell Peppers (Shimla Mirch), Potato, Spices, Paneer	20	30	Medium	4	North Indian|Stuffed|Special
+Aloo shimla, Roti	Lunch	Heavy	Potato and bell pepper curry with aromatic spices	Potato, Bell pepper, Onion, Tomato, Spices	10	25	Easy	4	North Indian|Homestyle|Comfort Food
+Gatte ki sabji, Roti	Lunch	Heavy	Gram flour dumplings in spiced yogurt curry	Gram Flour (Besan), Yogurt, Onion, Tomato, Spices	20	30	Medium	4	Rajasthani|Traditional|Unique
+Malai Kofta, Roti	Lunch	Heavy	Rich creamy kofta balls in white cashew gravy	Paneer, Potato, Cashews, Cream, Spices	30	30	Hard	4	North Indian|Rich|Special|Party Favorite
+Dum Aloo, Roti	Lunch	Heavy	Classic potato curry with traditional spices	Potato, Onion, Tomato, Turmeric, Cumin, Spices	10	25	Easy	4	North Indian|Comfort Food|Easy
+Dal Baati	Lunch	Heavy	Comforting lentil soup seasoned with spices	Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee	5	25	Easy	4	Comfort Food|Protein-Rich|Healthy
+Methi malai matar, Roti	Lunch	Heavy	Green peas and mushroom curry in spiced gravy	Green Peas, Mushroom, Onion, Tomato, Cream, Spices	15	25	Easy	4	North Indian|Healthy|Light
+Egg Curry, Roti	Lunch	Heavy	Delicious lunch dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Medium	4	Homestyle|Vegetarian
+Paneer Butter Masala	Lunch	Heavy	Soft cottage cheese cubes in flavorful curry	Paneer, Onion, Tomato, Cream, Spices	10	25	Medium	4	North Indian|Rich|Protein-Rich
+Rajma Kashmiri	Lunch	Heavy	Hearty red kidney bean curry in spiced tomato gravy	Rajma (Kidney Beans), Onion, Tomato, Ginger-Garlic, Spices	10	40	Easy	4	North Indian|Protein-Rich|Comfort Food
+Matar Mushroom	Lunch	Heavy	Green peas and mushroom curry in spiced gravy	Green Peas, Mushroom, Onion, Tomato, Cream, Spices	15	25	Easy	4	North Indian|Healthy|Light
+Veg/Peas/Masala/Soya Pulao	Dinner	Light	Green peas and mushroom curry in spiced gravy	Green Peas, Mushroom, Onion, Tomato, Cream, Spices	15	25	Easy	4	North Indian|Healthy|Light
+Tawa Pulao	Dinner	Light	Aromatic vegetable rice pilaf with whole spices	Basmati Rice, Vegetable, Whole Spices, Ghee	10	25	Easy	4	North Indian|Rice Dish|One Pot
+Paneer bhurji, Paratha	Dinner	Light	Stuffed Indian flatbread filled with spiced paneer mixture	Wheat Flour, Paneer, Ghee, Spices, Fresh Coriander	15	20	Medium	4	North Indian|Stuffed Bread
+Veg Hakka Noodles	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Veg fried rice	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Veg daliya	Dinner	Light	Comforting lentil soup seasoned with spices	Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee	5	25	Easy	4	Comfort Food|Protein-Rich|Healthy
+Veg Khichadi	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Bhel Puri/Papdi chaat	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Lemon/Tomato rice	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Dhokla	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Pasta	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Tomato Soup	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Soya Chaap	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Aloo/Pyaz/Paneer Paratha	Dinner	Heavy	Stuffed Indian flatbread filled with spiced aloo/pyaz/paneer mixture	Wheat Flour, Aloo/Pyaz/Paneer, Ghee, Spices, Fresh Coriander	15	20	Medium	4	North Indian|Stuffed Bread
+Paratha with Paneer curry (Butter/Shahi/Lababdar/Kadhai/DoPyaza)	Dinner	Heavy	Stuffed Indian flatbread filled with spiced paratha mixture	Wheat Flour, Paratha, Ghee, Spices, Fresh Coriander	15	20	Medium	4	North Indian|Stuffed Bread
+Veg kofta, Roti	Dinner	Heavy	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Medium	4	Homestyle|Vegetarian
+Chilli Paneer	Dinner	Heavy	Indo-Chinese style spicy paneer stir-fried with peppers	Paneer, Bell Peppers, Onion, Soy Sauce, Chili Sauce, Cornflour	15	20	Easy	4	Indo-Chinese|Spicy|Party Favorite
+Veg Manchurian	Dinner	Heavy	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Medium	4	Homestyle|Vegetarian
+Idly, Chutney, Sambhar	Dinner	Heavy	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Medium	4	Homestyle|Vegetarian
+Navratan Korma, Roti	Dinner	Heavy	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Medium	4	Homestyle|Vegetarian
+Baigan bharta, roti	Lunch	Light	Smoky mashed eggplant curry with tomatoes and spices	Eggplant (Baingan), Onion, Tomato, Green Chili, Spices	10	30	Medium	4	North Indian|Smoky|Rustic
+Palak Corn, roti	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Aloo baigan, dal, roti	Lunch	Light	Comforting lentil soup seasoned with spices	Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee	5	25	Easy	4	Comfort Food|Protein-Rich|Healthy
+Aloo Methi, dal, roti	Lunch	Light	Comforting lentil soup seasoned with spices	Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee	5	25	Easy	4	Comfort Food|Protein-Rich|Healthy
+Aloo Parwal, dal, roti	Lunch	Light	Comforting lentil soup seasoned with spices	Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee	5	25	Easy	4	Comfort Food|Protein-Rich|Healthy
+Kaddu, roti, raita	Lunch	Light	Sweet and spiced pumpkin curry	Pumpkin (Kaddu), Onion, Jaggery, Spices	10	25	Easy	4	North Indian|Sweet-Savory|Comfort Food
+Lauki gravy, roti	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Torai gravy, roti	Dinner	Light	Delicious dinner dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Kathal, roti	Lunch	Heavy	Delicious lunch dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Medium	4	Homestyle|Vegetarian
+Watermelon	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Pear	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Melon	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Plum	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Pomegranate	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Jamun	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Apples	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Grapes	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Banana	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Litchi	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
+Mangoes	Fruit	undefined	Delicious fruit dish prepared with traditional spices	Mixed Vegetables, Onion, Tomato, Spices	15	25	Easy	4	Homestyle|Vegetarian
