@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Image Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .selected { border: 4px solid #10B981; transform: scale(1.02); }
+        .img-card:hover { transform: scale(1.02); }
+        body { padding-bottom: 200px; } /* Space for fixed footer */
+    </style>
+</head>
+<body class="bg-gray-900 text-white p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-4 text-center text-amber-500">Dish Image Review (Local Mode)</h1>
+        <p class="text-center text-gray-500 mb-6">Images are loaded from your local disk for maximum speed.</p>
+        
+        <!-- Progress Bar -->
+        <div class="mb-8 bg-gray-800 p-4 rounded-xl">
+            <div class="flex justify-between text-sm text-gray-400 mb-2">
+                <span id="batch-indicator" class="font-bold text-white">Batch 1</span>
+                <span id="progress-percent">0% Completed</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div id="progress-bar" class="bg-amber-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div id="grid" class="min-h-[50vh]"></div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-800 p-6 border-t border-gray-700 shadow-2xl z-50">
+        <div class="max-w-7xl mx-auto flex flex-col gap-4">
+            
+            <div class="flex justify-between items-center">
+                <button onclick="prevBatch()" id="prev-btn" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                    ← Previous
+                </button>
+                
+                <div class="text-center">
+                     <span id="status" class="text-green-400 font-bold block text-lg">0 images selected</span>
+                     <span class="text-xs text-gray-500">Selection auto-saved locally</span>
+                </div>
+
+                <button onclick="nextBatch()" id="next-btn" class="bg-amber-500 hover:bg-amber-400 text-black px-8 py-3 rounded-lg font-bold transition-colors shadow-lg shadow-amber-900/20">
+                    Next Batch →
+                </button>
+                
+                <button onclick="exportSelection()" id="export-btn" class="hidden bg-green-500 hover:bg-green-400 text-black px-8 py-3 rounded-lg font-bold transition-colors shadow-lg shadow-green-900/20">
+                    ✅ Finish & Export JSON
+                </button>
+            </div>
+
+            <div id="export-area" class="hidden">
+                 <p class="text-sm text-gray-400 mb-2">Copy this JSON and send it to me:</p>
+                 <textarea id="output" class="w-full h-32 bg-gray-900 text-green-400 font-mono text-xs p-4 rounded border border-gray-700 focus:border-green-500 outline-none" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data (LOCAL PATHS)
+        const candidates = {"Aloo Bhaji":["/candidates/Aloo_Bhaji_0.jpg","/candidates/Aloo_Bhaji_1.jpg","/candidates/Aloo_Bhaji_2.jpg","/candidates/Aloo_Bhaji_3.jpg","/candidates/Aloo_Bhaji_4.jpg","/candidates/Aloo_Bhaji_5.jpg","/candidates/Aloo_Bhaji_6.jpg","/candidates/Aloo_Bhaji_7.jpg","/candidates/Aloo_Bhaji_8.jpg","/candidates/Aloo_Bhaji_9.jpg"],"Aloo Gajar Beans":[],"Aloo Gobhi":["/candidates/Aloo_Gobhi_0.jpg","/candidates/Aloo_Gobhi_1.jpg","/candidates/Aloo_Gobhi_2.JPG","/candidates/Aloo_Gobhi_3.PNG","/candidates/Aloo_Gobhi_4.jpg","/candidates/Aloo_Gobhi_5.jpg","/candidates/Aloo_Gobhi_6.jpg","/candidates/Aloo_Gobhi_7.jpg","/candidates/Aloo_Gobhi_8.jpg","/candidates/Aloo_Gobhi_9.jpg"],"Aloo Paratha":["/candidates/Aloo_Paratha_0.jpg","/candidates/Aloo_Paratha_1.jpg","/candidates/Aloo_Paratha_2.jpg","/candidates/Aloo_Paratha_3.jpg","/candidates/Aloo_Paratha_4.jpg","/candidates/Aloo_Paratha_5.jpg","/candidates/Aloo_Paratha_6.jpg","/candidates/Aloo_Paratha_7.jpg","/candidates/Aloo_Paratha_8.jpg","/candidates/Aloo_Paratha_9.jpg"],"Aloo shimla":["/candidates/Aloo_shimla_0.jpg","/candidates/Aloo_shimla_1.JPG","/candidates/Aloo_shimla_2.jpg","/candidates/Aloo_shimla_3.jpg","/candidates/Aloo_shimla_4.jpg","/candidates/Aloo_shimla_5.JPG"],"Apples":["/candidates/Apples_0.jpg","/candidates/Apples_1.jpg","/candidates/Apples_2.jpg","/candidates/Apples_3.jpg","/candidates/Apples_4.jpg","/candidates/Apples_5.jpg","/candidates/Apples_6.jpg","/candidates/Apples_7.jpg","/candidates/Apples_8.jpg","/candidates/Apples_9.jpg"],"Arbi masala":["/candidates/Arbi_masala_0.pdf","/candidates/Arbi_masala_1.pdf","/candidates/Arbi_masala_2.jpg"],"Banana":["/candidates/Banana_0.jpg","/candidates/Banana_1.JPG","/candidates/Banana_2.jpg","/candidates/Banana_3.jpg","/candidates/Banana_4.jpg","/candidates/Banana_5.jpg","/candidates/Banana_6.jpg","/candidates/Banana_7.jpg","/candidates/Banana_8.jpg","/candidates/Banana_9.jpg"],"Bharwa bhindi":["/candidates/Bharwa_bhindi_0.jpg"],"Bharwa shimla mirch":[],"Bhel Puri":["/candidates/Bhel_Puri_0.jpg","/candidates/Bhel_Puri_1.jpg","/candidates/Bhel_Puri_2.jpg","/candidates/Bhel_Puri_3.jpg","/candidates/Bhel_Puri_4.jpg","/candidates/Bhel_Puri_5.jpg","/candidates/Bhel_Puri_6.jpg","/candidates/Bhel_Puri_7.jpg","/candidates/Bhel_Puri_8.jpg","/candidates/Bhel_Puri_9.jpg"],"Bhindi":["/candidates/Bhindi_0.jpg","/candidates/Bhindi_1.JPG","/candidates/Bhindi_2.jpg","/candidates/Bhindi_3.jpg","/candidates/Bhindi_4.jpg","/candidates/Bhindi_5.jpg","/candidates/Bhindi_6.jpg","/candidates/Bhindi_7.jpg","/candidates/Bhindi_8.jpg","/candidates/Bhindi_9.jpg"],"Bread Roll":["/candidates/Bread_Roll_0.jpg","/candidates/Bread_Roll_1.jpg","/candidates/Bread_Roll_2.jpg","/candidates/Bread_Roll_3.jpg","/candidates/Bread_Roll_4.jpg","/candidates/Bread_Roll_5.jpg","/candidates/Bread_Roll_6.jpg","/candidates/Bread_Roll_7.jpg","/candidates/Bread_Roll_8.jpg","/candidates/Bread_Roll_9.jpg"],"Brinjal":["/candidates/Brinjal_0.jpg","/candidates/Brinjal_1.JPG","/candidates/Brinjal_2.jpg","/candidates/Brinjal_3.jpg","/candidates/Brinjal_4.jpg","/candidates/Brinjal_5.jpg","/candidates/Brinjal_6.jpg","/candidates/Brinjal_7.jpg","/candidates/Brinjal_8.jpg","/candidates/Brinjal_9.jpg"],"Chilla":["/candidates/Chilla_0.jpg","/candidates/Chilla_1.jpg","/candidates/Chilla_2.wav","/candidates/Chilla_3.jpg","/candidates/Chilla_4.jpg","/candidates/Chilla_5.jpg","/candidates/Chilla_6.jpg","/candidates/Chilla_7.jpg","/candidates/Chilla_8.jpg","/candidates/Chilla_9.jpg"],"Chilli Paneer":["/candidates/Chilli_Paneer_0.jpg","/candidates/Chilli_Paneer_1.JPG","/candidates/Chilli_Paneer_2.JPG","/candidates/Chilli_Paneer_3.jpg","/candidates/Chilli_Paneer_4.jpg","/candidates/Chilli_Paneer_5.jpg","/candidates/Chilli_Paneer_6.jpg","/candidates/Chilli_Paneer_7.jpg","/candidates/Chilli_Paneer_8.jpg","/candidates/Chilli_Paneer_9.jpg"],"Chole":["/candidates/Chole_0.jpg","/candidates/Chole_1.jpg","/candidates/Chole_2.jpg","/candidates/Chole_3.jpg","/candidates/Chole_4.jpg","/candidates/Chole_5.jpg","/candidates/Chole_6.jpg","/candidates/Chole_7.jpg","/candidates/Chole_8.jpg","/candidates/Chole_9.jpg"],"Dal":["/candidates/Dal_0.jpg","/candidates/Dal_1.jpg","/candidates/Dal_2.jpg","/candidates/Dal_3.jpg","/candidates/Dal_4.jpg","/candidates/Dal_5.jpg","/candidates/Dal_6.jpg","/candidates/Dal_7.jpg","/candidates/Dal_8.jpg","/candidates/Dal_9.jpg"],"Dal Baati":["/candidates/Dal_Baati_0.jpg","/candidates/Dal_Baati_1.jpg","/candidates/Dal_Baati_2.jpg","/candidates/Dal_Baati_3.jpg","/candidates/Dal_Baati_4.jpg","/candidates/Dal_Baati_5.jpg","/candidates/Dal_Baati_6.jpg","/candidates/Dal_Baati_7.jpg","/candidates/Dal_Baati_8.jpg","/candidates/Dal_Baati_9.jpg"],"Dal Dhokli":["/candidates/Dal_Dhokli_0.jpg","/candidates/Dal_Dhokli_1.jpg","/candidates/Dal_Dhokli_2.JPG","/candidates/Dal_Dhokli_3.jpg"],"Dal makhani":["/candidates/Dal_makhani_0.jpg","/candidates/Dal_makhani_1.JPG","/candidates/Dal_makhani_2.JPG","/candidates/Dal_makhani_3.JPG","/candidates/Dal_makhani_4.jpg","/candidates/Dal_makhani_5.jpg","/candidates/Dal_makhani_6.jpg","/candidates/Dal_makhani_7.jpg","/candidates/Dal_makhani_8.jpg","/candidates/Dal_makhani_9.jpg"],"Dhokla":["/candidates/Dhokla_0.JPG","/candidates/Dhokla_1.jpg","/candidates/Dhokla_2.jpg","/candidates/Dhokla_3.jpg","/candidates/Dhokla_4.jpg","/candidates/Dhokla_5.jpg","/candidates/Dhokla_6.jpg","/candidates/Dhokla_7.jpg","/candidates/Dhokla_8.jpg","/candidates/Dhokla_9.jpg"],"Dum Aloo":["/candidates/Dum_Aloo_0.JPG","/candidates/Dum_Aloo_1.jpg","/candidates/Dum_Aloo_2.jpg","/candidates/Dum_Aloo_3.jpg","/candidates/Dum_Aloo_4.JPG","/candidates/Dum_Aloo_5.JPG","/candidates/Dum_Aloo_6.jpg","/candidates/Dum_Aloo_7.jpg","/candidates/Dum_Aloo_8.jpg","/candidates/Dum_Aloo_9.jpg"],"Fried Idly":["/candidates/Fried_Idly_0.jpg","/candidates/Fried_Idly_1.JPG","/candidates/Fried_Idly_2.jpg","/candidates/Fried_Idly_3.jpg","/candidates/Fried_Idly_4.djvu","/candidates/Fried_Idly_5.djvu","/candidates/Fried_Idly_6.jpg","/candidates/Fried_Idly_7.pdf","/candidates/Fried_Idly_8.pdf","/candidates/Fried_Idly_9.pdf"],"Gatte ki sabji":["/candidates/Gatte_ki_sabji_0.JPG","/candidates/Gatte_ki_sabji_1.jpg","/candidates/Gatte_ki_sabji_2.JPG","/candidates/Gatte_ki_sabji_3.jpg","/candidates/Gatte_ki_sabji_4.JPG","/candidates/Gatte_ki_sabji_5.jpg","/candidates/Gatte_ki_sabji_6.jpg","/candidates/Gatte_ki_sabji_7.jpg","/candidates/Gatte_ki_sabji_8.jpg","/candidates/Gatte_ki_sabji_9.jpg"],"Gobhi Paratha":["/candidates/Gobhi_Paratha_0.JPG","/candidates/Gobhi_Paratha_1.JPG","/candidates/Gobhi_Paratha_2.jpg","/candidates/Gobhi_Paratha_3.jpg"],"Grapes":["/candidates/Grapes_0.jpg","/candidates/Grapes_1.jpg","/candidates/Grapes_2.jpg","/candidates/Grapes_3.jpg","/candidates/Grapes_4.jpg","/candidates/Grapes_5.jpg","/candidates/Grapes_6.jpg","/candidates/Grapes_7.jpg","/candidates/Grapes_8.jpg","/candidates/Grapes_9.jpg"],"Idly":["/candidates/Idly_0.jpg","/candidates/Idly_1.JPG","/candidates/Idly_2.JPG","/candidates/Idly_3.JPG","/candidates/Idly_4.jpg","/candidates/Idly_5.JPG","/candidates/Idly_6.JPG","/candidates/Idly_7.JPG","/candidates/Idly_8.JPG","/candidates/Idly_9.png"],"Idly Sambhar":["/candidates/Idly_Sambhar_0.jpg","/candidates/Idly_Sambhar_1.jpg","/candidates/Idly_Sambhar_2.jpg","/candidates/Idly_Sambhar_3.jpg","/candidates/Idly_Sambhar_4.jpg","/candidates/Idly_Sambhar_5.pdf","/candidates/Idly_Sambhar_6.pdf","/candidates/Idly_Sambhar_7.pdf","/candidates/Idly_Sambhar_8.pdf","/candidates/Idly_Sambhar_9.jpg"],"Jamun":["/candidates/Jamun_0.jpg","/candidates/Jamun_1.JPG","/candidates/Jamun_2.JPG","/candidates/Jamun_3.JPG","/candidates/Jamun_4.JPG","/candidates/Jamun_5.jpg","/candidates/Jamun_6.jpg","/candidates/Jamun_7.jpg","/candidates/Jamun_8.jpg","/candidates/Jamun_9.jpg"],"Jeera Aloo":["/candidates/Jeera_Aloo_0.jpg","/candidates/Jeera_Aloo_1.png","/candidates/Jeera_Aloo_2.jpg","/candidates/Jeera_Aloo_3.jpg","/candidates/Jeera_Aloo_4.jpg","/candidates/Jeera_Aloo_5.jpg","/candidates/Jeera_Aloo_6.jpg","/candidates/Jeera_Aloo_7.jpg","/candidates/Jeera_Aloo_8.jpg","/candidates/Jeera_Aloo_9.jpg"],"Kadhai Paneer":["/candidates/Kadhai_Paneer_0.jpg","/candidates/Kadhai_Paneer_1.jpg","/candidates/Kadhai_Paneer_2.jpg","/candidates/Kadhai_Paneer_3.jpg","/candidates/Kadhai_Paneer_4.jpg","/candidates/Kadhai_Paneer_5.jpg","/candidates/Kadhai_Paneer_6.jpg","/candidates/Kadhai_Paneer_7.jpg","/candidates/Kadhai_Paneer_8.jpg","/candidates/Kadhai_Paneer_9.jpg"],"Kadhi":["/candidates/Kadhi_0.jpg","/candidates/Kadhi_1.JPG","/candidates/Kadhi_2.JPG","/candidates/Kadhi_3.jpg","/candidates/Kadhi_4.jpg","/candidates/Kadhi_5.jpg","/candidates/Kadhi_6.jpg","/candidates/Kadhi_7.jpg","/candidates/Kadhi_8.jpg","/candidates/Kadhi_9.jpg"],"Kala Desi Chana Boiled":[],"Kamal Kakdi":["/candidates/Kamal_Kakdi_0.jpg","/candidates/Kamal_Kakdi_1.JPG","/candidates/Kamal_Kakdi_2.JPG","/candidates/Kamal_Kakdi_3.JPG","/candidates/Kamal_Kakdi_4.jpg","/candidates/Kamal_Kakdi_5.jpg","/candidates/Kamal_Kakdi_6.pdf","/candidates/Kamal_Kakdi_7.jpg","/candidates/Kamal_Kakdi_8.jpg"],"Karela":["/candidates/Karela_0.JPG","/candidates/Karela_1.JPG","/candidates/Karela_2.JPG","/candidates/Karela_3.jpg","/candidates/Karela_4.jpg","/candidates/Karela_5.jpg","/candidates/Karela_6.jpg","/candidates/Karela_7.jpg","/candidates/Karela_8.jpg","/candidates/Karela_9.jpg"],"Kathal":["/candidates/Kathal_0.JPG","/candidates/Kathal_1.jpg","/candidates/Kathal_2.jpg","/candidates/Kathal_3.jpg","/candidates/Kathal_4.jpg","/candidates/Kathal_5.jpg","/candidates/Kathal_6.jpg","/candidates/Kathal_7.jpg","/candidates/Kathal_8.jpg","/candidates/Kathal_9.jpg"],"Lauki":["/candidates/Lauki_0.jpg","/candidates/Lauki_1.jpg","/candidates/Lauki_2.jpg","/candidates/Lauki_3.jpg","/candidates/Lauki_4.jpg","/candidates/Lauki_5.jpg","/candidates/Lauki_6.jpg","/candidates/Lauki_7.jpg","/candidates/Lauki_8.jpg","/candidates/Lauki_9.jpg"],"Lauki Kofta":["/candidates/Lauki_Kofta_0.JPG","/candidates/Lauki_Kofta_1.JPG","/candidates/Lauki_Kofta_2.jpg","/candidates/Lauki_Kofta_3.jpg","/candidates/Lauki_Kofta_4.jpg"],"Lauki kofta":["/candidates/Lauki_kofta_0.JPG","/candidates/Lauki_kofta_1.JPG","/candidates/Lauki_kofta_2.jpg","/candidates/Lauki_kofta_3.jpg","/candidates/Lauki_kofta_4.jpg"],"Lemon Rice":["/candidates/Lemon_Rice_0.JPG","/candidates/Lemon_Rice_1.JPG","/candidates/Lemon_Rice_2.jpg","/candidates/Lemon_Rice_3.JPG","/candidates/Lemon_Rice_4.JPG","/candidates/Lemon_Rice_5.jpg","/candidates/Lemon_Rice_6.JPG","/candidates/Lemon_Rice_7.jpg","/candidates/Lemon_Rice_8.jpg","/candidates/Lemon_Rice_9.jpg"],"Litchi":["/candidates/Litchi_0.jpg","/candidates/Litchi_1.jpg","/candidates/Litchi_2.jpg","/candidates/Litchi_3.jpg","/candidates/Litchi_4.jpg","/candidates/Litchi_5.jpg","/candidates/Litchi_6.jpg","/candidates/Litchi_7.jpg","/candidates/Litchi_8.jpg","/candidates/Litchi_9.jpg"],"Malai Kofta":["/candidates/Malai_Kofta_0.jpg","/candidates/Malai_Kofta_1.jpg","/candidates/Malai_Kofta_2.jpg","/candidates/Malai_Kofta_3.jpg","/candidates/Malai_Kofta_4.jpg","/candidates/Malai_Kofta_5.jpg","/candidates/Malai_Kofta_6.jpg","/candidates/Malai_Kofta_7.jpg","/candidates/Malai_Kofta_8.jpg","/candidates/Malai_Kofta_9.JPG"],"Mangoes":["/candidates/Mangoes_0.jpg","/candidates/Mangoes_1.jpg","/candidates/Mangoes_2.jpg","/candidates/Mangoes_3.jpg","/candidates/Mangoes_4.jpg","/candidates/Mangoes_5.jpg","/candidates/Mangoes_6.jpg","/candidates/Mangoes_7.jpg","/candidates/Mangoes_8.jpg","/candidates/Mangoes_9.jpg"],"Masala Dosa":["/candidates/Masala_Dosa_0.jpg","/candidates/Masala_Dosa_1.jpg","/candidates/Masala_Dosa_2.jpg","/candidates/Masala_Dosa_3.jpg","/candidates/Masala_Dosa_4.jpg","/candidates/Masala_Dosa_5.jpg","/candidates/Masala_Dosa_6.jpg","/candidates/Masala_Dosa_7.jpg","/candidates/Masala_Dosa_8.jpg","/candidates/Masala_Dosa_9.jpg"],"Masala Pulao":["/candidates/Masala_Pulao_0.jpg","/candidates/Masala_Pulao_1.jpg","/candidates/Masala_Pulao_2.JPG","/candidates/Masala_Pulao_3.jpg","/candidates/Masala_Pulao_4.jpg","/candidates/Masala_Pulao_5.jpg","/candidates/Masala_Pulao_6.jpg","/candidates/Masala_Pulao_7.jpg","/candidates/Masala_Pulao_8.jpg","/candidates/Masala_Pulao_9.jpg"],"Matar Mushroom":["/candidates/Matar_Mushroom_0.jpg","/candidates/Matar_Mushroom_1.pdf","/candidates/Matar_Mushroom_2.pdf","/candidates/Matar_Mushroom_3.pdf","/candidates/Matar_Mushroom_4.jpg","/candidates/Matar_Mushroom_5.pdf"],"Matar mushroom":["/candidates/Matar_mushroom_0.jpg","/candidates/Matar_mushroom_1.pdf","/candidates/Matar_mushroom_2.pdf","/candidates/Matar_mushroom_3.pdf","/candidates/Matar_mushroom_4.jpg","/candidates/Matar_mushroom_5.pdf"],"Melon":["/candidates/Melon_0.jpg","/candidates/Melon_1.jpg","/candidates/Melon_2.jpg","/candidates/Melon_3.JPG","/candidates/Melon_4.jpg","/candidates/Melon_5.jpg","/candidates/Melon_6.jpg","/candidates/Melon_7.jpg","/candidates/Melon_8.jpg","/candidates/Melon_9.jpg"],"Methi":["/candidates/Methi_0.jpg","/candidates/Methi_1.jpg","/candidates/Methi_2.JPG","/candidates/Methi_3.jpg","/candidates/Methi_4.jpg","/candidates/Methi_5.jpg","/candidates/Methi_6.jpg","/candidates/Methi_7.jpg","/candidates/Methi_8.jpg","/candidates/Methi_9.jpg"],"Methi Paratha":["/candidates/Methi_Paratha_0.jpg","/candidates/Methi_Paratha_1.jpg","/candidates/Methi_Paratha_2.jpg","/candidates/Methi_Paratha_3.JPG","/candidates/Methi_Paratha_4.jpg","/candidates/Methi_Paratha_5.jpg","/candidates/Methi_Paratha_6.jpg","/candidates/Methi_Paratha_7.JPG","/candidates/Methi_Paratha_8.jpg","/candidates/Methi_Paratha_9.jpg"],"Methi malai matar":["/candidates/Methi_malai_matar_0.jpg"],"Navratan Korma":["/candidates/Navratan_Korma_0.jpg","/candidates/Navratan_Korma_1.JPG","/candidates/Navratan_Korma_2.jpg","/candidates/Navratan_Korma_3.JPG","/candidates/Navratan_Korma_4.JPG","/candidates/Navratan_Korma_5.jpg"],"Palak":["/candidates/Palak_0.JPG","/candidates/Palak_1.jpg","/candidates/Palak_2.jpg","/candidates/Palak_3.JPG","/candidates/Palak_4.JPG","/candidates/Palak_5.jpg","/candidates/Palak_6.jpg","/candidates/Palak_7.jpg","/candidates/Palak_8.jpg","/candidates/Palak_9.jpg"],"Paneer Butter Masala":["/candidates/Paneer_Butter_Masala_0.jpg","/candidates/Paneer_Butter_Masala_1.jpg","/candidates/Paneer_Butter_Masala_2.jpg","/candidates/Paneer_Butter_Masala_3.jpg","/candidates/Paneer_Butter_Masala_4.jpg","/candidates/Paneer_Butter_Masala_5.jpg","/candidates/Paneer_Butter_Masala_6.jpg","/candidates/Paneer_Butter_Masala_7.jpg","/candidates/Paneer_Butter_Masala_8.jpg","/candidates/Paneer_Butter_Masala_9.jpg"],"Paneer Do Pyaza":["/candidates/Paneer_Do_Pyaza_0.jpg","/candidates/Paneer_Do_Pyaza_1.JPG","/candidates/Paneer_Do_Pyaza_2.jpg"],"Paneer Paratha":["/candidates/Paneer_Paratha_0.jpg","/candidates/Paneer_Paratha_1.jpg","/candidates/Paneer_Paratha_2.jpg","/candidates/Paneer_Paratha_3.jpg","/candidates/Paneer_Paratha_4.jpg","/candidates/Paneer_Paratha_5.jpg","/candidates/Paneer_Paratha_6.jpg","/candidates/Paneer_Paratha_7.jpg","/candidates/Paneer_Paratha_8.jpg","/candidates/Paneer_Paratha_9.png"],"Paneer bhurji":["/candidates/Paneer_bhurji_0.jpg","/candidates/Paneer_bhurji_1.jpg","/candidates/Paneer_bhurji_2.jpg","/candidates/Paneer_bhurji_3.JPG","/candidates/Paneer_bhurji_4.jpg","/candidates/Paneer_bhurji_5.jpg","/candidates/Paneer_bhurji_6.jpg","/candidates/Paneer_bhurji_7.jpg","/candidates/Paneer_bhurji_8.jpg","/candidates/Paneer_bhurji_9.jpg"],"Papdi Chaat":["/candidates/Papdi_Chaat_0.jpg","/candidates/Papdi_Chaat_1.jpg","/candidates/Papdi_Chaat_2.jpg","/candidates/Papdi_Chaat_3.jpg","/candidates/Papdi_Chaat_4.PNG","/candidates/Papdi_Chaat_5.jpg","/candidates/Papdi_Chaat_6.jpg","/candidates/Papdi_Chaat_7.jpg","/candidates/Papdi_Chaat_8.jpg","/candidates/Papdi_Chaat_9.jpg"],"Parwal":["/candidates/Parwal_0.JPG","/candidates/Parwal_1.jpg","/candidates/Parwal_2.jpg","/candidates/Parwal_3.jpg","/candidates/Parwal_4.jpg","/candidates/Parwal_5.jpg","/candidates/Parwal_6.jpg","/candidates/Parwal_7.jpg","/candidates/Parwal_8.jpg","/candidates/Parwal_9.jpg"],"Pasta":["/candidates/Pasta_0.JPG","/candidates/Pasta_1.jpg","/candidates/Pasta_2.jpg","/candidates/Pasta_3.jpg","/candidates/Pasta_4.jpg","/candidates/Pasta_5.jpg","/candidates/Pasta_6.jpg","/candidates/Pasta_7.jpg","/candidates/Pasta_8.jpg","/candidates/Pasta_9.jpg"],"Pav Bhaji":["/candidates/Pav_Bhaji_0.jpg","/candidates/Pav_Bhaji_1.jpg","/candidates/Pav_Bhaji_2.jpg","/candidates/Pav_Bhaji_3.JPG","/candidates/Pav_Bhaji_4.jpg","/candidates/Pav_Bhaji_5.jpg","/candidates/Pav_Bhaji_6.jpg","/candidates/Pav_Bhaji_7.jpg","/candidates/Pav_Bhaji_8.jpg","/candidates/Pav_Bhaji_9.jpg"],"Pear":["/candidates/Pear_0.jpg","/candidates/Pear_1.jpg","/candidates/Pear_2.jpg","/candidates/Pear_3.jpg","/candidates/Pear_4.jpg","/candidates/Pear_5.jpg","/candidates/Pear_6.jpg","/candidates/Pear_7.jpg","/candidates/Pear_8.jpg","/candidates/Pear_9.jpg"],"Peas Pulao":["/candidates/Peas_Pulao_0.JPG","/candidates/Peas_Pulao_1.jpg","/candidates/Peas_Pulao_2.JPG","/candidates/Peas_Pulao_3.JPG","/candidates/Peas_Pulao_4.jpg","/candidates/Peas_Pulao_5.jpg","/candidates/Peas_Pulao_6.jpg","/candidates/Peas_Pulao_7.jpg","/candidates/Peas_Pulao_8.jpg","/candidates/Peas_Pulao_9.jpg"],"Plum":["/candidates/Plum_0.jpg","/candidates/Plum_1.jpg","/candidates/Plum_2.jpg","/candidates/Plum_3.jpg","/candidates/Plum_4.jpg","/candidates/Plum_5.JPG","/candidates/Plum_6.png","/candidates/Plum_7.jpg","/candidates/Plum_8.jpg","/candidates/Plum_9.jpg"],"Poha":["/candidates/Poha_0.jpg","/candidates/Poha_1.jpg","/candidates/Poha_2.JPG","/candidates/Poha_3.jpg","/candidates/Poha_4.jpg","/candidates/Poha_5.jpg","/candidates/Poha_6.jpg","/candidates/Poha_7.jpg","/candidates/Poha_8.jpg","/candidates/Poha_9.jpg"],"Pomegranate":["/candidates/Pomegranate_0.jpg","/candidates/Pomegranate_1.jpg","/candidates/Pomegranate_2.jpg","/candidates/Pomegranate_3.JPG","/candidates/Pomegranate_4.jpg","/candidates/Pomegranate_5.jpg","/candidates/Pomegranate_6.jpg","/candidates/Pomegranate_7.jpg","/candidates/Pomegranate_8.jpg","/candidates/Pomegranate_9.jpg"],"Pumpkin":["/candidates/Pumpkin_0.jpg","/candidates/Pumpkin_1.jpg","/candidates/Pumpkin_2.jpeg","/candidates/Pumpkin_3.jpg","/candidates/Pumpkin_4.jpg","/candidates/Pumpkin_5.jpg","/candidates/Pumpkin_6.jpg","/candidates/Pumpkin_7.jpg","/candidates/Pumpkin_8.jpg","/candidates/Pumpkin_9.jpg"],"Pyaz Paratha":["/candidates/Pyaz_Paratha_0.jpg"],"Rajma":["/candidates/Rajma_0.jpg","/candidates/Rajma_1.jpg","/candidates/Rajma_2.jpg","/candidates/Rajma_3.jpg","/candidates/Rajma_4.jpg","/candidates/Rajma_5.jpg","/candidates/Rajma_6.jpg","/candidates/Rajma_7.jpg","/candidates/Rajma_8.jpg","/candidates/Rajma_9.jpg"],"Rajma Kashmiri":["/candidates/Rajma_Kashmiri_0.png"],"Sabudana Khichdi":["/candidates/Sabudana_Khichdi_0.jpg","/candidates/Sabudana_Khichdi_1.jpg","/candidates/Sabudana_Khichdi_2.JPG","/candidates/Sabudana_Khichdi_3.jpg","/candidates/Sabudana_Khichdi_4.jpg","/candidates/Sabudana_Khichdi_5.jpg","/candidates/Sabudana_Khichdi_6.jpg","/candidates/Sabudana_Khichdi_7.jpg","/candidates/Sabudana_Khichdi_8.jpg","/candidates/Sabudana_Khichdi_9.jpg"],"Shahi Paneer":["/candidates/Shahi_Paneer_0.JPG","/candidates/Shahi_Paneer_1.jpg","/candidates/Shahi_Paneer_2.jpg","/candidates/Shahi_Paneer_3.jpg","/candidates/Shahi_Paneer_4.JPG","/candidates/Shahi_Paneer_5.JPG","/candidates/Shahi_Paneer_6.JPG","/candidates/Shahi_Paneer_7.jpg","/candidates/Shahi_Paneer_8.jpg","/candidates/Shahi_Paneer_9.jpg"],"Sooji Toast":["/candidates/Sooji_Toast_0.jpg","/candidates/Sooji_Toast_1.jpg","/candidates/Sooji_Toast_2.pdf","/candidates/Sooji_Toast_3.pdf","/candidates/Sooji_Toast_4.pdf","/candidates/Sooji_Toast_5.jpg","/candidates/Sooji_Toast_6.jpg"],"Soya Chaap":["/candidates/Soya_Chaap_0.JPG","/candidates/Soya_Chaap_1.JPG","/candidates/Soya_Chaap_2.JPG","/candidates/Soya_Chaap_3.JPG","/candidates/Soya_Chaap_4.JPG","/candidates/Soya_Chaap_5.jpg","/candidates/Soya_Chaap_6.jpg","/candidates/Soya_Chaap_7.jpg","/candidates/Soya_Chaap_8.jpg","/candidates/Soya_Chaap_9.jpg"],"Soya Pulao":["/candidates/Soya_Pulao_0.jpg","/candidates/Soya_Pulao_1.jpg"],"Tawa Pulao":["/candidates/Tawa_Pulao_0.jpg","/candidates/Tawa_Pulao_1.JPG","/candidates/Tawa_Pulao_2.jpg","/candidates/Tawa_Pulao_3.jpg","/candidates/Tawa_Pulao_4.jpg","/candidates/Tawa_Pulao_5.jpg","/candidates/Tawa_Pulao_6.jpg","/candidates/Tawa_Pulao_7.jpg","/candidates/Tawa_Pulao_8.jpg","/candidates/Tawa_Pulao_9.jpg"],"Tomato Rice":["/candidates/Tomato_Rice_0.jpg","/candidates/Tomato_Rice_1.JPG","/candidates/Tomato_Rice_2.JPG","/candidates/Tomato_Rice_3.jpg","/candidates/Tomato_Rice_4.jpg","/candidates/Tomato_Rice_5.jpg","/candidates/Tomato_Rice_6.jpg","/candidates/Tomato_Rice_7.jpg","/candidates/Tomato_Rice_8.jpg","/candidates/Tomato_Rice_9.jpg"],"Tomato Soup":["/candidates/Tomato_Soup_0.jpg","/candidates/Tomato_Soup_1.jpg","/candidates/Tomato_Soup_2.JPG","/candidates/Tomato_Soup_3.jpg","/candidates/Tomato_Soup_4.jpg","/candidates/Tomato_Soup_5.png","/candidates/Tomato_Soup_6.jpg","/candidates/Tomato_Soup_7.jpg","/candidates/Tomato_Soup_8.jpg","/candidates/Tomato_Soup_9.png"],"Torai":["/candidates/Torai_0.JPG","/candidates/Torai_1.JPG","/candidates/Torai_2.JPG","/candidates/Torai_3.JPG","/candidates/Torai_4.JPG","/candidates/Torai_5.jpg","/candidates/Torai_6.jpg","/candidates/Torai_7.jpg","/candidates/Torai_8.jpg","/candidates/Torai_9.jpg"],"Upma":["/candidates/Upma_0.JPG","/candidates/Upma_1.jpg","/candidates/Upma_2.jpg","/candidates/Upma_3.jpg","/candidates/Upma_4.jpg","/candidates/Upma_5.jpg","/candidates/Upma_6.JPG","/candidates/Upma_7.jpg","/candidates/Upma_8.jpg","/candidates/Upma_9.jpg"],"Uttapam":["/candidates/Uttapam_0.jpg","/candidates/Uttapam_1.jpg","/candidates/Uttapam_2.jpg","/candidates/Uttapam_3.jpg","/candidates/Uttapam_4.jpg","/candidates/Uttapam_5.jpg","/candidates/Uttapam_6.jpg","/candidates/Uttapam_7.jpg","/candidates/Uttapam_8.jpg","/candidates/Uttapam_9.jpg"],"Veg Hakka Noodles":["/candidates/Veg_Hakka_Noodles_0.JPG","/candidates/Veg_Hakka_Noodles_1.jpg","/candidates/Veg_Hakka_Noodles_2.jpg","/candidates/Veg_Hakka_Noodles_3.jpg","/candidates/Veg_Hakka_Noodles_4.jpg","/candidates/Veg_Hakka_Noodles_5.jpg","/candidates/Veg_Hakka_Noodles_6.jpg","/candidates/Veg_Hakka_Noodles_7.jpg","/candidates/Veg_Hakka_Noodles_8.jpg"],"Veg Khichadi":["/candidates/Veg_Khichadi_0.jpg"],"Veg Manchurian":["/candidates/Veg_Manchurian_0.jpg","/candidates/Veg_Manchurian_1.jpg","/candidates/Veg_Manchurian_2.JPG","/candidates/Veg_Manchurian_3.jpg","/candidates/Veg_Manchurian_4.jpg","/candidates/Veg_Manchurian_5.jpg","/candidates/Veg_Manchurian_6.jpg","/candidates/Veg_Manchurian_7.jpg","/candidates/Veg_Manchurian_8.jpg","/candidates/Veg_Manchurian_9.jpg"],"Veg Pulao":["/candidates/Veg_Pulao_0.jpg","/candidates/Veg_Pulao_1.jpg","/candidates/Veg_Pulao_2.jpg","/candidates/Veg_Pulao_3.jpg","/candidates/Veg_Pulao_4.jpg","/candidates/Veg_Pulao_5.jpg","/candidates/Veg_Pulao_6.JPG","/candidates/Veg_Pulao_7.jpg","/candidates/Veg_Pulao_8.jpg","/candidates/Veg_Pulao_9.jpg"],"Veg cheese sandwiches":["/candidates/Veg_cheese_sandwiches_0.djvu","/candidates/Veg_cheese_sandwiches_1.pdf","/candidates/Veg_cheese_sandwiches_2.pdf","/candidates/Veg_cheese_sandwiches_3.pdf","/candidates/Veg_cheese_sandwiches_4.pdf","/candidates/Veg_cheese_sandwiches_5.pdf","/candidates/Veg_cheese_sandwiches_6.pdf","/candidates/Veg_cheese_sandwiches_7.jpg","/candidates/Veg_cheese_sandwiches_8.jpg","/candidates/Veg_cheese_sandwiches_9.jpg"],"Veg daliya":[],"Veg fried rice":["/candidates/Veg_fried_rice_0.JPG","/candidates/Veg_fried_rice_1.jpg","/candidates/Veg_fried_rice_2.jpg","/candidates/Veg_fried_rice_3.jpg","/candidates/Veg_fried_rice_4.jpg","/candidates/Veg_fried_rice_5.jpg","/candidates/Veg_fried_rice_6.jpg","/candidates/Veg_fried_rice_7.jpg","/candidates/Veg_fried_rice_8.jpg","/candidates/Veg_fried_rice_9.jpg"],"Veg kofta":["/candidates/Veg_kofta_0.jpg","/candidates/Veg_kofta_1.pdf","/candidates/Veg_kofta_2.jpg","/candidates/Veg_kofta_3.jpg"],"Vegetable Quinoa":["/candidates/Vegetable_Quinoa_0.jpg","/candidates/Vegetable_Quinoa_1.jpg","/candidates/Vegetable_Quinoa_2.jpg","/candidates/Vegetable_Quinoa_3.jpg","/candidates/Vegetable_Quinoa_4.jpg","/candidates/Vegetable_Quinoa_5.jpg","/candidates/Vegetable_Quinoa_6.jpg","/candidates/Vegetable_Quinoa_7.jpg","/candidates/Vegetable_Quinoa_8.jpg","/candidates/Vegetable_Quinoa_9.jpg"],"Vermicelli":["/candidates/Vermicelli_0.JPG","/candidates/Vermicelli_1.jpg","/candidates/Vermicelli_2.jpg","/candidates/Vermicelli_3.jpg","/candidates/Vermicelli_4.jpg","/candidates/Vermicelli_5.jpg","/candidates/Vermicelli_6.jpg","/candidates/Vermicelli_7.jpg","/candidates/Vermicelli_8.jpg","/candidates/Vermicelli_9.jpg"],"Watermelon":["/candidates/Watermelon_0.jpg","/candidates/Watermelon_1.jpg","/candidates/Watermelon_2.JPG","/candidates/Watermelon_3.JPG","/candidates/Watermelon_4.jpg","/candidates/Watermelon_5.jpg","/candidates/Watermelon_6.jpg","/candidates/Watermelon_7.jpg","/candidates/Watermelon_8.jpg","/candidates/Watermelon_9.jpg"]};
+        
+        // Initialize selection from localStorage if available, else empty
+        const savedSelection = localStorage.getItem('menu_image_selection');
+        const selection = savedSelection ? JSON.parse(savedSelection) : {};
+        
+        const dishes = Object.keys(candidates).sort();
+        const BATCH_SIZE = 4;
+        let currentBatch = 0;
+        const totalBatches = Math.ceil(dishes.length / BATCH_SIZE);
+
+        // Core Functions
+        function renderBatch(batchIndex) {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = ''; 
+
+            const start = batchIndex * BATCH_SIZE;
+            const end = Math.min(start + BATCH_SIZE, dishes.length);
+            const batchDishes = dishes.slice(start, end);
+
+            batchDishes.forEach(dish => {
+                const urls = candidates[dish];
+                if (!urls || urls.length === 0) return;
+
+                const section = document.createElement('div');
+                section.className = 'bg-gray-800 p-6 rounded-xl mb-8 border border-gray-700';
+                
+                const header = document.createElement('div');
+                header.className = 'flex justify-between items-center mb-4';
+                
+                const title = document.createElement('h3');
+                title.className = 'text-xl font-bold text-white';
+                title.textContent = dish;
+                
+                const count = document.createElement('span');
+                count.className = 'text-xs bg-gray-700 px-2 py-1 rounded text-gray-400';
+                count.textContent = `${urls.length} options`;
+
+                header.append(title, count);
+                section.appendChild(header);
+
+                const imgRow = document.createElement('div');
+                imgRow.className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4';
+
+                urls.forEach(url => {
+                    const wrap = document.createElement('div');
+                    wrap.className = 'img-card cursor-pointer transition-all duration-200 rounded-lg overflow-hidden relative aspect-square bg-gray-900 border-2 border-transparent hover:border-gray-500';
+                    const fullPath = url; // It's already the local path
+                    
+                    // Match against saved selection (handling both full URL and local path if format changed)
+                    const isSelected = selection[dish] && (selection[dish] === fullPath || selection[dish].endsWith(path.basename(fullPath)));
+                    
+                    if (isSelected) {
+                        wrap.classList.add('selected');
+                        wrap.classList.remove('border-transparent');
+                        // Update selection to match stable local path if it was old format
+                        if (selection[dish] !== fullPath) selection[dish] = fullPath;
+                    }
+                    
+                    wrap.onclick = () => selectImage(dish, fullPath, wrap);
+
+                    const img = document.createElement('img');
+                    img.src = fullPath;
+                    img.className = 'w-full h-full object-cover';
+                    img.loading = 'lazy'; 
+                    
+                    wrap.appendChild(img);
+                    imgRow.appendChild(wrap);
+                });
+
+                section.appendChild(imgRow);
+                grid.appendChild(section);
+            });
+
+            updateUI(batchIndex);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateUI(batchIndex) {
+            // Progress
+            document.getElementById('batch-indicator').textContent = `Batch ${batchIndex + 1} of ${totalBatches}`;
+            const percent = Math.round(((batchIndex + 1) / totalBatches) * 100);
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+            document.getElementById('progress-percent').textContent = `${percent}% Completed`;
+
+            // Buttons
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const exportBtn = document.getElementById('export-btn');
+
+            prevBtn.disabled = batchIndex === 0;
+            prevBtn.classList.toggle('opacity-50', batchIndex === 0);
+
+            if (batchIndex === totalBatches - 1) {
+                nextBtn.classList.add('hidden');
+                exportBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                exportBtn.classList.add('hidden');
+            }
+            
+            updateStatus();
+        }
+
+        function selectImage(dish, url, el) {
+            const parent = el.parentElement;
+            // Clear siblings
+            Array.from(parent.children).forEach(c => {
+                c.classList.remove('selected');
+                c.classList.add('border-transparent');
+            });
+            
+            if (selection[dish] === url) {
+                delete selection[dish]; // Toggle off
+            } else {
+                selection[dish] = url;
+                el.classList.add('selected');
+                el.classList.remove('border-transparent');
+            }
+            
+            // Save state
+            localStorage.setItem('menu_image_selection', JSON.stringify(selection));
+            updateStatus();
+        }
+
+        function updateStatus() {
+            const count = Object.keys(selection).length;
+            document.getElementById('status').textContent = `${count} selected`;
+        }
+
+        function nextBatch() {
+            if (currentBatch < totalBatches - 1) {
+                currentBatch++;
+                renderBatch(currentBatch);
+            }
+        }
+
+        function prevBatch() {
+            if (currentBatch > 0) {
+                currentBatch--;
+                renderBatch(currentBatch);
+            }
+        }
+
+        function exportSelection() {
+            const out = document.getElementById('output');
+            const area = document.getElementById('export-area');
+            
+            out.value = JSON.stringify(selection, null, 2);
+            area.classList.remove('hidden');
+            out.select();
+            
+            // Scroll to bottom
+            const scrollingElement = (document.scrollingElement || document.body);
+            scrollingElement.scrollTop = scrollingElement.scrollHeight;
+        }
+
+        // Start
+        renderBatch(0);
+    </script>
+</body>
+</html>
+    

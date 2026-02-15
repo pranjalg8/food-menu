@@ -1,0 +1,2263 @@
+{
+  "breakfast": {
+    "light": [
+      "Vermicelli (Semiya Upma)",
+      "Sabudana Khichdi",
+      "Upma",
+      "Uttapam",
+      "Poha",
+      "Vegetable Quinoa",
+      "Fried Idly",
+      "Veg cheese sandwiches (Grilled and Non-Grilled)",
+      "Sooji Toast",
+      "Chilla",
+      "Kala Desi Chana Boiled, Onion, Tomato cut"
+    ],
+    "heavy": [
+      "Aloo Paratha, curd",
+      "Paneer Paratha, curd",
+      "Methi Paratha, chutney",
+      "Pav Bhaji",
+      "Idly Sambhar",
+      "Chole, Poori",
+      "Aloo Bhaji, Poori",
+      "Bread Roll",
+      "Chole, Bhature",
+      "Dal Dhokli",
+      "Paneer Paratha",
+      "Pyaz Paratha",
+      "Aloo Paratha",
+      "Gobhi Paratha",
+      "Masala Dosa, Chutney, Sambhar"
+    ]
+  },
+  "lunch": {
+    "light": [
+      "Rajma, Jeera Onion Rice",
+      "Jeera Aloo, Dal, Roti",
+      "Aloo Gajar Beans, Dal, Roti",
+      "Aloo Gobhi, Dal, Roti",
+      "Bhindi, Roti, Dal",
+      "Kadhi, Rice",
+      "Lauki Kofta, Roti",
+      "Matar mushroom, Roti",
+      "Arbi masala, Roti, Dal",
+      "Bharwa bhindi, Roti",
+      "Dal, Rice",
+      "Baigan bharta, roti",
+      "Aloo baigan, dal, roti",
+      "Aloo Methi, dal, roti",
+      "Aloo Parwal, dal, roti",
+      "Kaddu, roti, raita"
+    ],
+    "heavy": [
+      "Chole, Rice",
+      "Dal makhani, rice",
+      "Bharwa shimla mirch, roti",
+      "Aloo shimla, Roti",
+      "Gatte ki sabji, Roti",
+      "Malai Kofta, Roti",
+      "Dum Aloo, Roti",
+      "Dal Baati",
+      "Methi malai matar, Roti",
+      "Egg Curry, Roti",
+      "Paneer Butter Masala",
+      "Rajma Kashmiri",
+      "Matar Mushroom",
+      "Kathal, roti"
+    ]
+  },
+  "dinner": {
+    "light": [
+      "Veg Pulao",
+      "Peas Pulao",
+      "Masala Pulao",
+      "Soya Pulao",
+      "Tawa Pulao",
+      "Paneer bhurji, Paratha",
+      "Veg Hakka Noodles",
+      "Veg fried rice",
+      "Veg daliya",
+      "Veg Khichadi",
+      "Bhel Puri",
+      "Papdi Chaat",
+      "Lemon Rice",
+      "Tomato Rice",
+      "Dhokla",
+      "Pasta",
+      "Tomato Soup",
+      "Soya Chaap",
+      "Palak Corn, roti",
+      "Lauki gravy, roti",
+      "Torai gravy, roti"
+    ],
+    "heavy": [
+      "Aloo Paratha",
+      "Pyaz Paratha",
+      "Paneer Paratha",
+      "Paneer Butter Masala",
+      "Shahi Paneer",
+      "Kadhai Paneer",
+      "Paneer Do Pyaza",
+      "Veg kofta, Roti",
+      "Chilli Paneer",
+      "Veg Manchurian",
+      "Idly, Chutney, Sambhar",
+      "Navratan Korma, Roti"
+    ]
+  },
+  "extras": [],
+  "fruits": [
+    "Watermelon",
+    "Pear",
+    "Melon",
+    "Plum",
+    "Pomegranate",
+    "Jamun",
+    "Apples",
+    "Grapes",
+    "Banana",
+    "Litchi",
+    "Mangoes"
+  ],
+  "recipes": {
+    "Vermicelli (Semiya Upma)": {
+      "name": "Vermicelli (Semiya Upma)",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Vermicelli_Upma_in_North_India.jpg/500px-Vermicelli_Upma_in_North_India.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Vermicelli%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Savory stir-fried vermicelli with vegetables and spices",
+      "ingredients": "Vermicelli, Onion, Tomato, Green Chili, Mustard Seeds, Curry Leaves",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 15,
+        "total": 25
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "South Indian",
+        "Quick"
+      ]
+    },
+    "Sabudana Khichdi": {
+      "name": "Sabudana Khichdi",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Alu_Sabudana_Khichdi.jpg/500px-Alu_Sabudana_Khichdi.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Sabudana%20Khichdi%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Soft pearls of tapioca cooked with peanuts and spices",
+      "ingredients": "Sabudana (Tapioca Pearls), Peanuts, Potato, Green Chili, Cumin",
+      "cookingTime": {
+        "prep": 30,
+        "cook": 20,
+        "total": 50
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Fasting Food",
+        "Gluten-Free"
+      ]
+    },
+    "Upma": {
+      "name": "Upma",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Upma_South_India.JPG/500px-Upma_South_India.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Upma%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Classic South Indian semolina breakfast dish",
+      "ingredients": "Semolina (Rava), Onion, Green Chili, Mustard Seeds, Curry Leaves, Cashews",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 15,
+        "total": 20
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "South Indian",
+        "Quick"
+      ]
+    },
+    "Uttapam": {
+      "name": "Uttapam",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Onion_Uttappam_01.jpg/500px-Onion_Uttappam_01.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Uttapam%20recipe",
+      "critical": "Rice, Urad Dal",
+      "prep": "Soak & Ferment batter (12+ hrs)",
+      "description": "Thick savory rice pancake topped with vegetables",
+      "ingredients": "Rice, Urad Dal, Onion, Tomato, Green Chili, Coriander",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 15,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "South Indian",
+        "Fermented"
+      ]
+    },
+    "Poha": {
+      "name": "Poha",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Poha_4.jpg/500px-Poha_4.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Poha%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Fluffed rice flakes stir-fried with spices",
+      "ingredients": "Flattened Rice, Onion, Peanuts, Green Chili, Turmeric, Curry Leaves",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 10,
+        "total": 15
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Quick",
+        "Light"
+      ]
+    },
+    "Vegetable Quinoa": {
+      "name": "Vegetable Quinoa",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Vegan_quinoa_with_vegetables_-_Quinoa_con_pisto_%286891318087%29.jpg/500px-Vegan_quinoa_with_vegetables_-_Quinoa_con_pisto_%286891318087%29.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Vegetable%20Quinoa%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Protein-rich quinoa cooked with colorful vegetables",
+      "ingredients": "Quinoa, Mixed Vegetables, Garlic, Olive Oil, Herbs",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 20,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Healthy",
+        "Protein-Rich"
+      ]
+    },
+    "Fried Idly": {
+      "name": "Fried Idly",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Fried_idlies_of_Tamilnadu.jpg/500px-Fried_idlies_of_Tamilnadu.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Fried%20Idly%20recipe",
+      "critical": "Rice, Urad Dal",
+      "prep": "Soak & Ferment batter (12+ hrs)",
+      "description": "Crispy fried idlis seasoned with spices",
+      "ingredients": "Idli (leftover), Onion, Green Chili, Mustard Seeds, Curry Leaves, Turmeric",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 10,
+        "total": 20
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "South Indian",
+        "Crispy"
+      ]
+    },
+    "Veg cheese sandwiches (Grilled and Non-Grilled)": {
+      "name": "Veg cheese sandwiches (Grilled and Non-Grilled)",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Veg_Cheese_Sandwich.jpg/500px-Veg_Cheese_Sandwich.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20cheese%20sandwiches%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Cheesy vegetable sandwich, grilled or toasted",
+      "ingredients": "Bread, Cheese, Tomato, Cucumber, Onion, Butter, Green Chutney",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 10,
+        "total": 20
+      },
+      "difficulty": "Easy",
+      "servings": 2,
+      "tags": [
+        "Kids Favorite",
+        "Quick"
+      ]
+    },
+    "Sooji Toast": {
+      "name": "Sooji Toast",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Bread_toast_and_milk.jpg/500px-Bread_toast_and_milk.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Sooji%20Toast%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Crispy toast topped with spiced semolina mixture",
+      "ingredients": "Bread, Semolina, Onion, Tomato, Green Chili, Coriander",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 15,
+        "total": 25
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Fusion",
+        "Crispy"
+      ]
+    },
+    "Chilla": {
+      "name": "Chilla",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Vegetable_Chilla.jpg/500px-Vegetable_Chilla.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Chilla%20recipe",
+      "critical": "Besan/Moong Dal",
+      "prep": "Soak Dal for 2-4 hrs (if Moong)",
+      "description": "Savory Indian gram flour pancake",
+      "ingredients": "Besan (Gram Flour), Onion, Tomato, Green Chili, Ajwain, Coriander",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 20,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Protein-Rich",
+        "Quick"
+      ]
+    },
+    "Kala Desi Chana Boiled, Onion, Tomato cut": {
+      "name": "Kala Desi Chana Boiled, Onion, Tomato cut",
+      "category": "breakfast",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/2020_01_28_Black_Chickpea_SaladIMG_8686.jpg/500px-2020_01_28_Black_Chickpea_SaladIMG_8686.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Kala%20Desi%20Chana%20Boiled%20recipe",
+      "critical": "Chickpeas",
+      "prep": "Soak Chole overnight (8-10 hrs)",
+      "description": "Simple boiled black chickpeas with fresh vegetables",
+      "ingredients": "Kala Chana (Black Chickpeas), Onion, Tomato, Lemon, Chaat Masala",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 5,
+        "total": 15
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Protein-Rich",
+        "Healthy"
+      ]
+    },
+    "Aloo Paratha, curd": {
+      "name": "Aloo Paratha, curd",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Aloo_Paratha_%2896238%29.jpg/500px-Aloo_Paratha_%2896238%29.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20Paratha%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Flaky flatbread stuffed with spiced mashed potatoes",
+      "ingredients": "Wheat Flour, Potato, Onion, Green Chili, Ginger, Coriander, Ghee",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 25,
+        "total": 45
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Filling"
+      ]
+    },
+    "Paneer Paratha, curd": {
+      "name": "Paneer Paratha, curd",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Paratha_from_Narathiwas%2C_Thailand.jpg/500px-Paratha_from_Narathiwas%2C_Thailand.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Paneer%20Paratha%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Rich flatbread stuffed with spiced cottage cheese",
+      "ingredients": "Wheat Flour, Paneer, Onion, Green Chili, Coriander, Ghee",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 25,
+        "total": 45
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Protein-Rich"
+      ]
+    },
+    "Methi Paratha, chutney": {
+      "name": "Methi Paratha, chutney",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Methi_%28fenugreek%29_parathas.jpg/500px-Methi_%28fenugreek%29_parathas.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Methi%20Paratha%20recipe",
+      "critical": "Methi",
+      "prep": "",
+      "description": "Nutritious flatbread with fresh fenugreek leaves",
+      "ingredients": "Wheat Flour, Methi (Fenugreek), Green Chili, Ajwain, Ghee",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Healthy",
+        "Green"
+      ]
+    },
+    "Pav Bhaji": {
+      "name": "Pav Bhaji",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Pav_Bhaji.jpg/500px-Pav_Bhaji.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Pav%20Bhaji%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Spicy mashed vegetable curry served with buttered buns",
+      "ingredients": "Mixed Vegetables, Pav (Buns), Butter, Pav Bhaji Masala, Onion, Tomato",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 30,
+        "total": 45
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Street Food",
+        "Mumbai Special"
+      ]
+    },
+    "Idly Sambhar": {
+      "name": "Idly Sambhar",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/INSTANT_RAWA_IDLY_WITH_SAMBHAR.jpg/500px-INSTANT_RAWA_IDLY_WITH_SAMBHAR.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Idly%20Sambhar%20recipe",
+      "critical": "Rice, Urad Dal",
+      "prep": "Soak & Ferment batter (12+ hrs)",
+      "description": "Soft steamed rice cakes served with tangy lentil soup",
+      "ingredients": "Rice, Urad Dal, Toor Dal, Vegetables, Tamarind, Sambhar Masala",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 30,
+        "total": 50
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "South Indian",
+        "Healthy"
+      ]
+    },
+    "Chole, Poori": {
+      "name": "Chole, Poori",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Chole_Bhature_4.jpg/500px-Chole_Bhature_4.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Chole%20recipe",
+      "critical": "Chickpeas",
+      "prep": "Soak Chole overnight (8-10 hrs)",
+      "description": "Spicy chickpea curry served with deep-fried puffed bread",
+      "ingredients": "Chickpeas, Tomato, Onion, Chole Masala, Wheat Flour, Oil",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 40,
+        "total": 55
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Festive"
+      ]
+    },
+    "Aloo Bhaji, Poori": {
+      "name": "Aloo Bhaji, Poori",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Aloo_Puri.jpg/500px-Aloo_Puri.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20Bhaji%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Simple potato curry served with fluffy deep-fried bread",
+      "ingredients": "Potato, Onion, Tomato, Turmeric, Cumin, Wheat Flour, Oil",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 30,
+        "total": 45
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Comfort Food"
+      ]
+    },
+    "Bread Roll": {
+      "name": "Bread Roll",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Replica_bread_roll%2C_Walker_Art_Gallery.jpg/500px-Replica_bread_roll%2C_Walker_Art_Gallery.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Bread%20Roll%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Crispy fried rolls stuffed with spiced potato filling",
+      "ingredients": "Bread, Potato, Onion, Green Chili, Breadcrumbs, Oil",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 15,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Snack",
+        "Crispy"
+      ]
+    },
+    "Chole, Bhature": {
+      "name": "Chole, Bhature",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Chole_Bhature_4.jpg/500px-Chole_Bhature_4.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Chole%20recipe",
+      "critical": "Chickpeas",
+      "prep": "Soak Chole overnight (8-10 hrs)",
+      "description": "North Indian spicy chickpea curry with fluffy fried bread",
+      "ingredients": "Chickpeas, Tomato, Chole Masala, Flour, Yogurt, Oil",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 45,
+        "total": 65
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Indulgent"
+      ]
+    },
+    "Dal Dhokli": {
+      "name": "Dal Dhokli",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Dal_Dhokali.jpg/500px-Dal_Dhokali.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Dal%20Dhokli%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Gujarati comfort food - wheat dough pieces in spiced lentil soup",
+      "ingredients": "Toor Dal, Wheat Flour, Tomato, Peanuts, Jaggery, Tamarind",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 40,
+        "total": 55
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Gujarati",
+        "Comfort Food"
+      ]
+    },
+    "Paneer Paratha": {
+      "name": "Paneer Paratha",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Paratha_from_Narathiwas%2C_Thailand.jpg/500px-Paratha_from_Narathiwas%2C_Thailand.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Paneer%20Paratha%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced aloo/pyaz/paneer mixture",
+      "ingredients": "Wheat Flour, Aloo/Pyaz/Paneer, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Pyaz Paratha": {
+      "name": "Pyaz Paratha",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Tandoori_Aloo_Pyaz_Parantha.jpg/500px-Tandoori_Aloo_Pyaz_Parantha.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Pyaz%20Paratha%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced aloo/pyaz/paneer mixture",
+      "ingredients": "Wheat Flour, Aloo/Pyaz/Paneer, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Aloo Paratha": {
+      "name": "Aloo Paratha",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Aloo_Paratha_%2896238%29.jpg/500px-Aloo_Paratha_%2896238%29.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20Paratha%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced aloo/pyaz/paneer mixture",
+      "ingredients": "Wheat Flour, Aloo/Pyaz/Paneer, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Gobhi Paratha": {
+      "name": "Gobhi Paratha",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Gobhi_Parantha.JPG/500px-Gobhi_Parantha.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Gobhi%20Paratha%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Variety of stuffed flatbreads with different fillings",
+      "ingredients": "Wheat Flour, Choice of Filling (Paneer/Onion/Potato/Cauliflower), Ghee",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 25,
+        "total": 45
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Versatile"
+      ]
+    },
+    "Masala Dosa, Chutney, Sambhar": {
+      "name": "Masala Dosa, Chutney, Sambhar",
+      "category": "breakfast",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Masala_Dosa_in_Banana_Leaf_with_Chutney.jpg/500px-Masala_Dosa_in_Banana_Leaf_with_Chutney.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Masala%20Dosa%20recipe",
+      "critical": "Rice, Urad Dal",
+      "prep": "Soak & Ferment batter (12+ hrs)",
+      "description": "Crispy rice crepe filled with spiced potato, served with sides",
+      "ingredients": "Rice, Urad Dal, Potato, Onion, Mustard Seeds, Curry Leaves",
+      "cookingTime": {
+        "prep": 30,
+        "cook": 25,
+        "total": 55
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "South Indian",
+        "Iconic"
+      ]
+    },
+    "Rajma, Jeera Onion Rice": {
+      "name": "Rajma, Jeera Onion Rice",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Rajma_Chawal_by_Rama_Bhave.jpg/500px-Rajma_Chawal_by_Rama_Bhave.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Rajma%20recipe",
+      "critical": "Kidney Beans",
+      "prep": "Soak Rajma overnight (8-10 hrs)",
+      "description": "Rich red kidney bean curry served with cumin rice",
+      "ingredients": "Kidney Beans, Tomato, Onion, Ginger-Garlic, Rice, Cumin",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 50,
+        "total": 65
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Protein-Rich"
+      ]
+    },
+    "Jeera Aloo, Dal, Roti": {
+      "name": "Jeera Aloo, Dal, Roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Jeera-aloo-foodpanda.jpg/500px-Jeera-aloo-foodpanda.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Jeera%20Aloo%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Cumin-spiced potatoes with lentils and flatbread",
+      "ingredients": "Potato, Cumin, Green Chili, Dal, Wheat Flour",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Simple",
+        "Comfort Food"
+      ]
+    },
+    "Aloo Gajar Beans, Dal, Roti": {
+      "name": "Aloo Gajar Beans, Dal, Roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Aloo_Beans_Gajar.jpg/500px-Aloo_Beans_Gajar.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20Gajar%20Beans%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Mixed vegetable curry with carrots, beans and potatoes",
+      "ingredients": "Potato, Carrot, Beans, Tomato, Dal, Wheat Flour",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 30,
+        "total": 45
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Healthy",
+        "Colorful"
+      ]
+    },
+    "Aloo Gobhi, Dal, Roti": {
+      "name": "Aloo Gobhi, Dal, Roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Aloo-ghobhi-sabji.jpg/500px-Aloo-ghobhi-sabji.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20Gobhi%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Classic potato and cauliflower dry curry",
+      "ingredients": "Potato, Cauliflower, Tomato, Turmeric, Cumin, Dal, Wheat Flour",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Popular"
+      ]
+    },
+    "Bhindi, Roti, Dal": {
+      "name": "Bhindi, Roti, Dal",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Quiabo.jpg/500px-Quiabo.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Bhindi%20recipe",
+      "critical": "Bhindi",
+      "prep": "",
+      "description": "Crispy okra stir-fry with lentils and flatbread",
+      "ingredients": "Okra (Bhindi), Onion, Tomato, Spices, Dal, Wheat Flour",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 20,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Healthy",
+        "Crispy"
+      ]
+    },
+    "Kadhi, Rice": {
+      "name": "Kadhi, Rice",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Kadhi_Gole_Food_by_Ms_Ujwala_Kasambe_DSCN9907_%284%29.jpg/500px-Kadhi_Gole_Food_by_Ms_Ujwala_Kasambe_DSCN9907_%284%29.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Kadhi%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Tangy yogurt-based curry served with steamed rice",
+      "ingredients": "Yogurt, Besan, Turmeric, Curry Leaves, Rice",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 30,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Tangy"
+      ]
+    },
+    "Lauki Kofta, Roti": {
+      "name": "Lauki Kofta, Roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Lauki_Kofta_Curry.JPG/500px-Lauki_Kofta_Curry.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Lauki%20Kofta%20recipe",
+      "critical": "Lauki",
+      "prep": "",
+      "description": "Bottle gourd dumplings in mild curry sauce",
+      "ingredients": "Lauki (Bottle Gourd), Besan, Tomato, Onion, Cream, Wheat Flour",
+      "cookingTime": {
+        "prep": 25,
+        "cook": 35,
+        "total": 60
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Matar mushroom, Roti": {
+      "name": "Matar mushroom, Roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Matar_mushroom.jpg/500px-Matar_mushroom.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Matar%20mushroom%20recipe",
+      "critical": "Mushrooms",
+      "prep": "",
+      "description": "Green peas and mushroom curry in spiced gravy",
+      "ingredients": "Green Peas, Mushroom, Onion, Tomato, Cream, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Arbi masala, Roti, Dal": {
+      "name": "Arbi masala, Roti, Dal",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Arbi_Gosht.jpg/500px-Arbi_Gosht.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Arbi%20masala%20recipe",
+      "critical": "Arbi",
+      "prep": "",
+      "description": "Comforting lentil soup seasoned with spices",
+      "ingredients": "Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 25,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Comfort Food",
+        "Protein-Rich",
+        "Healthy"
+      ]
+    },
+    "Bharwa bhindi, Roti": {
+      "name": "Bharwa bhindi, Roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Stuffed_Okra_Recipe_From_Indian_Cuisine_By_Sonia_Goyal.jpg/500px-Stuffed_Okra_Recipe_From_Indian_Cuisine_By_Sonia_Goyal.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Bharwa%20bhindi%20recipe",
+      "critical": "Bhindi",
+      "prep": "",
+      "description": "Stuffed okra filled with spiced masala mixture",
+      "ingredients": "Okra (Bhindi), Spice Mix, Onion, Amchur, Oil",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 25,
+        "total": 45
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed",
+        "Special"
+      ]
+    },
+    "Dal, Rice": {
+      "name": "Dal, Rice",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Dal_curry_20230930.jpg/500px-Dal_curry_20230930.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Dal%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious lunch dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Baigan bharta, roti": {
+      "name": "Baigan bharta, roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Baigan%20bharta",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Baigan%20bharta%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Smoky mashed eggplant curry with tomatoes and spices",
+      "ingredients": "Eggplant (Baingan), Onion, Tomato, Green Chili, Spices",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 30,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Smoky",
+        "Rustic"
+      ]
+    },
+    "Aloo baigan, dal, roti": {
+      "name": "Aloo baigan, dal, roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Aloo%20baigan",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20baigan%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Comforting lentil soup seasoned with spices",
+      "ingredients": "Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 25,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Comfort Food",
+        "Protein-Rich",
+        "Healthy"
+      ]
+    },
+    "Aloo Methi, dal, roti": {
+      "name": "Aloo Methi, dal, roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Aloo%20Methi",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20Methi%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Comforting lentil soup seasoned with spices",
+      "ingredients": "Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 25,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Comfort Food",
+        "Protein-Rich",
+        "Healthy"
+      ]
+    },
+    "Aloo Parwal, dal, roti": {
+      "name": "Aloo Parwal, dal, roti",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Aloo%20Parwal",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20Parwal%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Comforting lentil soup seasoned with spices",
+      "ingredients": "Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 25,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Comfort Food",
+        "Protein-Rich",
+        "Healthy"
+      ]
+    },
+    "Kaddu, roti, raita": {
+      "name": "Kaddu, roti, raita",
+      "category": "lunch",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Kaddu",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Kaddu%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Sweet and spiced pumpkin curry",
+      "ingredients": "Pumpkin (Kaddu), Onion, Jaggery, Spices",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Sweet-Savory",
+        "Comfort Food"
+      ]
+    },
+    "Chole, Rice": {
+      "name": "Chole, Rice",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Chole_Bhature_4.jpg/500px-Chole_Bhature_4.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Chole%20recipe",
+      "critical": "Chickpeas",
+      "prep": "Soak Chole overnight (8-10 hrs)",
+      "description": "Spicy chickpea curry with aromatic spices",
+      "ingredients": "Chickpeas, Onion, Tomato, Ginger-Garlic, Chole Masala",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 30,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Spicy",
+        "Protein-Rich"
+      ]
+    },
+    "Dal makhani, rice": {
+      "name": "Dal makhani, rice",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Dal_Makhani.jpg/500px-Dal_Makhani.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Dal%20makhani%20recipe",
+      "critical": "Urad Dal, Rajma",
+      "prep": "Soak Dal/Rajma overnight",
+      "description": "Delicious lunch dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Bharwa shimla mirch, roti": {
+      "name": "Bharwa shimla mirch, roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://via.placeholder.com/400?text=Bharwa%20shimla%20mirch",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Bharwa%20shimla%20mirch%20recipe",
+      "critical": "Capsicum",
+      "prep": "",
+      "description": "Bell peppers stuffed with spiced potato filling",
+      "ingredients": "Bell Peppers (Shimla Mirch), Potato, Spices, Paneer",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 30,
+        "total": 50
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed",
+        "Special"
+      ]
+    },
+    "Aloo shimla, Roti": {
+      "name": "Aloo shimla, Roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Chilly_pCapsicum_Potato.JPG/500px-Chilly_Capsicum_Potato.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Aloo%20shimla%20recipe",
+      "critical": "Capsicum",
+      "prep": "",
+      "description": "Potato and bell pepper curry with aromatic spices",
+      "ingredients": "Potato, Bell pepper, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Homestyle",
+        "Comfort Food"
+      ]
+    },
+    "Gatte ki sabji, Roti": {
+      "name": "Gatte ki sabji, Roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/TraditionalGatteKiSabji_HomeMade_Mumbai.jpg/500px-TraditionalGatteKiSabji_HomeMade_Mumbai.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Gatte%20ki%20sabji%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Gram flour dumplings in spiced yogurt curry",
+      "ingredients": "Gram Flour (Besan), Yogurt, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 20,
+        "cook": 30,
+        "total": 50
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Rajasthani",
+        "Traditional",
+        "Unique"
+      ]
+    },
+    "Malai Kofta, Roti": {
+      "name": "Malai Kofta, Roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Malai_Kofta.jpg/500px-Malai_Kofta.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Malai%20Kofta%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Rich creamy kofta balls in white cashew gravy",
+      "ingredients": "Paneer, Potato, Cashews, Cream, Spices",
+      "cookingTime": {
+        "prep": 30,
+        "cook": 30,
+        "total": 60
+      },
+      "difficulty": "Hard",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Rich",
+        "Special",
+        "Party Favorite"
+      ]
+    },
+    "Dum Aloo, Roti": {
+      "name": "Dum Aloo, Roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kashmiri_Dum_Aaloo.JPG/500px-Kashmiri_Dum_Aaloo.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Dum%20Aloo%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Classic potato curry with traditional spices",
+      "ingredients": "Potato, Onion, Tomato, Turmeric, Cumin, Spices",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Comfort Food",
+        "Easy"
+      ]
+    },
+    "Dal Baati": {
+      "name": "Dal Baati",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Dal_Baati.jpg/500px-Dal_Baati.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Dal%20Baati%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Comforting lentil soup seasoned with spices",
+      "ingredients": "Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 25,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Comfort Food",
+        "Protein-Rich",
+        "Healthy"
+      ]
+    },
+    "Methi malai matar, Roti": {
+      "name": "Methi malai matar, Roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Methi_Malai_Matar.jpg/500px-Methi_Malai_Matar.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Methi%20malai%20matar%20recipe",
+      "critical": "Methi",
+      "prep": "",
+      "description": "Green peas and mushroom curry in spiced gravy",
+      "ingredients": "Green Peas, Mushroom, Onion, Tomato, Cream, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Egg Curry, Roti": {
+      "name": "Egg Curry, Roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://via.placeholder.com/400?text=Egg%20Curry",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Egg%20Curry%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious lunch dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Paneer Butter Masala": {
+      "name": "Paneer Butter Masala",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Paneer_butter_masala_2.jpg/500px-Paneer_butter_masala_2.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Paneer%20Butter%20Masala%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced paratha mixture",
+      "ingredients": "Wheat Flour, Paratha, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Rajma Kashmiri": {
+      "name": "Rajma Kashmiri",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Kashmiri_Pandit_vegetarian_thali_served_at_Matamaal_restaurants_with_Rajma%2C_Dum_aloo%2C_Paneer_dishes.png/500px-Kashmiri_Pandit_vegetarian_thali_served_at_Matamaal_restaurants_with_Rajma%2C_Dum_aloo%2C_Paneer_dishes.png",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Rajma%20Kashmiri%20recipe",
+      "critical": "Kidney Beans",
+      "prep": "Soak Rajma overnight (8-10 hrs)",
+      "description": "Hearty red kidney bean curry in spiced tomato gravy",
+      "ingredients": "Rajma (Kidney Beans), Onion, Tomato, Ginger-Garlic, Spices",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 40,
+        "total": 50
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Protein-Rich",
+        "Comfort Food"
+      ]
+    },
+    "Matar Mushroom": {
+      "name": "Matar Mushroom",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Cuisine_of_India_by_ArmAg_%285%29.jpg/500px-Cuisine_of_India_by_ArmAg_%285%29.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Matar%20Mushroom%20recipe",
+      "critical": "Mushrooms",
+      "prep": "",
+      "description": "Green peas and mushroom curry in spiced gravy",
+      "ingredients": "Green Peas, Mushroom, Onion, Tomato, Cream, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Kathal, roti": {
+      "name": "Kathal, roti",
+      "category": "lunch",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/%28Artocarpus_heterophyllus%29_Jack_fruits_on_Simhachalam_Hills_01.jpg/500px-%28Artocarpus_heterophyllus%29_Jack_fruits_on_Simhachalam_Hills_01.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Kathal%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious lunch dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Veg Pulao": {
+      "name": "Veg Pulao",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Veg_pulao_with_raitha.jpg/500px-Veg_pulao_with_raitha.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20Pulao%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Green peas and mushroom curry in spiced gravy",
+      "ingredients": "Green Peas, Mushroom, Onion, Tomato, Cream, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Peas Pulao": {
+      "name": "Peas Pulao",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Veg_pulao%2C_self-cooked%2C_Roing%2C_Arunachal_Pradesh%2C_jpg.0002.jpg/500px-Veg_pulao%2C_self-cooked%2C_Roing%2C_Arunachal_Pradesh%2C_jpg.0002.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Peas%20Pulao%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Green peas and mushroom curry in spiced gravy",
+      "ingredients": "Green Peas, Mushroom, Onion, Tomato, Cream, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Masala Pulao": {
+      "name": "Masala Pulao",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/TawaPulao.jpg/500px-TawaPulao.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Masala%20Pulao%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Green peas and mushroom curry in spiced gravy",
+      "ingredients": "Green Peas, Mushroom, Onion, Tomato, Cream, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Soya Pulao": {
+      "name": "Soya Pulao",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Soya_Curry_with_Matar_rice_and_Gulab_Jamun.jpg/500px-Soya_Curry_with_Matar_rice_and_Gulab_Jamun.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Soya%20Pulao%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Green peas and mushroom curry in spiced gravy",
+      "ingredients": "Green Peas, Mushroom, Onion, Tomato, Cream, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Healthy",
+        "Light"
+      ]
+    },
+    "Tawa Pulao": {
+      "name": "Tawa Pulao",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Tawa_pulao_and_boondi_raita.JPG/500px-Tawa_pulao_and_boondi_raita.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Tawa%20Pulao%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Aromatic vegetable rice pilaf with whole spices",
+      "ingredients": "Basmati Rice, Vegetable, Whole Spices, Ghee",
+      "cookingTime": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Rice Dish",
+        "One Pot"
+      ]
+    },
+    "Paneer bhurji, Paratha": {
+      "name": "Paneer bhurji, Paratha",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Homemade_Paneer_Bhurji.jpg/500px-Homemade_Paneer_Bhurji.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Paneer%20bhurji%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced paneer mixture",
+      "ingredients": "Wheat Flour, Paneer, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Veg Hakka Noodles": {
+      "name": "Veg Hakka Noodles",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Veg_Hakka_Noodles.jpg/500px-Veg_Hakka_Noodles.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20Hakka%20Noodles%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Veg fried rice": {
+      "name": "Veg fried rice",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Veg_fried_rice_homemade.jpg/500px-Veg_fried_rice_homemade.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20fried%20rice%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Veg daliya": {
+      "name": "Veg daliya",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Veg%20daliya",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20daliya%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Comforting lentil soup seasoned with spices",
+      "ingredients": "Lentils (Toor/Moong Dal), Turmeric, Cumin, Garlic, Ghee",
+      "cookingTime": {
+        "prep": 5,
+        "cook": 25,
+        "total": 30
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Comfort Food",
+        "Protein-Rich",
+        "Healthy"
+      ]
+    },
+    "Veg Khichadi": {
+      "name": "Veg Khichadi",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Veg_Khichadi.jpg/500px-Veg_Khichadi.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20Khichadi%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Bhel Puri": {
+      "name": "Bhel Puri",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Bhel_puri_Snack.jpg/500px-Bhel_puri_Snack.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Bhel%20Puri%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Papdi Chaat": {
+      "name": "Papdi Chaat",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Papdi-chaat.jpg/500px-Papdi-chaat.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Papdi%20Chaat%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Lemon Rice": {
+      "name": "Lemon Rice",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Picture_of_Lemon_rice_dish.JPG/500px-Picture_of_Lemon_rice_dish.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Lemon%20Rice%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Tomato Rice": {
+      "name": "Tomato Rice",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jollof_rice_and_tomato_stew.jpg/500px-Jollof_rice_and_tomato_stew.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Tomato%20Rice%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Dhokla": {
+      "name": "Dhokla",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Dhokla_3.jpg/500px-Dhokla_3.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Dhokla%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Pasta": {
+      "name": "Pasta",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/A_plate_of_red_sauce_pasta.jpg/500px-A_plate_of_red_sauce_pasta.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Pasta%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Tomato Soup": {
+      "name": "Tomato Soup",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Tomato_soup%2C_Turkish_style.jpg/500px-Tomato_soup%2C_Turkish_style.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Tomato%20Soup%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Soya Chaap": {
+      "name": "Soya Chaap",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Soya_Chaap_dish.jpg/500px-Soya_Chaap_dish.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Soya%20Chaap%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Palak Corn, roti": {
+      "name": "Palak Corn, roti",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Palak%20Corn",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Palak%20Corn%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Lauki gravy, roti": {
+      "name": "Lauki gravy, roti",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Lauki%20gravy",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Lauki%20gravy%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Torai gravy, roti": {
+      "name": "Torai gravy, roti",
+      "category": "dinner",
+      "type": "light",
+      "image": "https://via.placeholder.com/400?text=Torai%20gravy",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Torai%20gravy%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Shahi Paneer": {
+      "name": "Shahi Paneer",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Shahi_Paneer_garnished_with_fresh_mint.jpg/500px-Shahi_Paneer_garnished_with_fresh_mint.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Shahi%20Paneer%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced paratha mixture",
+      "ingredients": "Wheat Flour, Paratha, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Kadhai Paneer": {
+      "name": "Kadhai Paneer",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Kadhai_paneer_%28paneer_shimlamirch%29.jpg/500px-Kadhai_paneer_%28paneer_shimlamirch%29.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Kadhai%20Paneer%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced paratha mixture",
+      "ingredients": "Wheat Flour, Paratha, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Paneer Do Pyaza": {
+      "name": "Paneer Do Pyaza",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Paneer_Do-Pyaza.jpg/500px-Paneer_Do-Pyaza.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Paneer%20Do%20Pyaza%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Stuffed Indian flatbread filled with spiced paratha mixture",
+      "ingredients": "Wheat Flour, Paratha, Ghee, Spices, Fresh Coriander",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "North Indian",
+        "Stuffed Bread"
+      ]
+    },
+    "Veg kofta, Roti": {
+      "name": "Veg kofta, Roti",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://via.placeholder.com/400?text=Veg%20kofta",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20kofta%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Chilli Paneer": {
+      "name": "Chilli Paneer",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Paneer_Chilli_Semi_Gravy.jpg/500px-Paneer_Chilli_Semi_Gravy.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Chilli%20Paneer%20recipe",
+      "critical": "Paneer",
+      "prep": "",
+      "description": "Indo-Chinese style spicy paneer stir-fried with peppers",
+      "ingredients": "Paneer, Bell Peppers, Onion, Soy Sauce, Chili Sauce, Cornflour",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 20,
+        "total": 35
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Indo-Chinese",
+        "Spicy",
+        "Party Favorite"
+      ]
+    },
+    "Veg Manchurian": {
+      "name": "Veg Manchurian",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Homemade_Veg_Manchurian_and_fried_rice.jpg/500px-Homemade_Veg_Manchurian_and_fried_rice.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Veg%20Manchurian%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Idly, Chutney, Sambhar": {
+      "name": "Idly, Chutney, Sambhar",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Idli_Sambar.JPG/500px-Idli_Sambar.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Idly%20recipe",
+      "critical": "Rice, Urad Dal",
+      "prep": "Soak & Ferment batter (12+ hrs)",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Navratan Korma, Roti": {
+      "name": "Navratan Korma, Roti",
+      "category": "dinner",
+      "type": "heavy",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Veg_Jafrani_Navratna_Korma.jpg/500px-Veg_Jafrani_Navratna_Korma.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Navratan%20Korma%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious dinner dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Medium",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Watermelon": {
+      "name": "Watermelon",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/%D8%A7%D9%84%D8%A8%D8%B7%D9%8A%D8%AE_%D8%A7%D9%84%D8%A3%D8%AD%D9%85%D8%B1.JPG/500px-%D8%A7%D9%84%D8%A8%D8%B7%D9%8A%D8%AE_%D8%A7%D9%84%D8%A3%D8%AD%D9%85%D8%B1.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Watermelon%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Pear": {
+      "name": "Pear",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Four_pears.jpg/500px-Four_pears.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Pear%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Melon": {
+      "name": "Melon",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Cucumis_melo_on_white_background.jpg/500px-Cucumis_melo_on_white_background.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Melon%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Plum": {
+      "name": "Plum",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Plum_in_a_black_background_02.jpg/500px-Plum_in_a_black_background_02.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Plum%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Pomegranate": {
+      "name": "Pomegranate",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Pomegranate_fruit_-_whole_and_piece_with_arils.jpg/500px-Pomegranate_fruit_-_whole_and_piece_with_arils.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Pomegranate%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Jamun": {
+      "name": "Jamun",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Syzygium_cumini_07.JPG/500px-Syzygium_cumini_07.JPG",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Jamun%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Apples": {
+      "name": "Apples",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/500px-Red_Apple.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Apples%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Grapes": {
+      "name": "Grapes",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Green_Grape_3.jpg/500px-Green_Grape_3.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Grapes%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Banana": {
+      "name": "Banana",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Bananas_on_black_background_02.jpg/500px-Bananas_on_black_background_02.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Banana%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Litchi": {
+      "name": "Litchi",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Litchi_chinensis190714mx.jpg/500px-Litchi_chinensis190714mx.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Litchi%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    },
+    "Mangoes": {
+      "name": "Mangoes",
+      "category": "fruit",
+      "type": "",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/500px-Mangos_-_single_and_halved.jpg",
+      "recipeUrl": "https://www.youtube.com/results?search_query=Mangoes%20recipe",
+      "critical": "",
+      "prep": "",
+      "description": "Delicious fruit dish prepared with traditional spices",
+      "ingredients": "Mixed Vegetables, Onion, Tomato, Spices",
+      "cookingTime": {
+        "prep": 15,
+        "cook": 25,
+        "total": 40
+      },
+      "difficulty": "Easy",
+      "servings": 4,
+      "tags": [
+        "Homestyle",
+        "Vegetarian"
+      ]
+    }
+  }
+}
