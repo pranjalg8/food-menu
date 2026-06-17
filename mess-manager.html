@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mess Manager — Daily</title>
+  <meta name="description" content="Run the daily mess workflow: fair rotation, menu, grocery list, and prefilled WhatsApp messages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,800&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍱</text></svg>" />
+  <style>
+    :root {
+      --paper: #FBF7F0; --card: #FFFFFF; --ink: #2A2118; --ink-soft: #7A6E5C;
+      --line: #EAE0D1; --haldi: #E8A33D; --mirchi: #C0392B; --dhania: #3E7C4A;
+      --clay: #B5683E; --wa-green: #25D366; --wa-bubble: #D9FDD3; --wa-chatbg: #ECE5DD;
+      --radius: 18px; --shadow: 0 1px 2px rgba(42,33,24,.04), 0 8px 24px rgba(42,33,24,.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Outfit', system-ui, sans-serif; background: var(--paper); color: var(--ink);
+      line-height: 1.5; padding: 22px 16px 64px; max-width: 540px; margin: 0 auto;
+      background-image: radial-gradient(circle at 12% 0%, rgba(232,163,61,.10), transparent 38%),
+        radial-gradient(circle at 96% 8%, rgba(62,124,74,.08), transparent 32%);
+    }
+    .eyebrow { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+    header { margin-bottom: 20px; }
+    h1 { font-family: 'Fraunces', serif; font-weight: 800; font-size: 2.05rem; line-height: 1.04; letter-spacing: -.01em; margin: 4px 0 2px; }
+    h1 .dot { color: var(--haldi); }
+    .tagline { color: var(--ink-soft); font-size: .95rem; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 16px 18px; margin-bottom: 14px; }
+    .step-head { display: flex; align-items: baseline; gap: 9px; margin-bottom: 12px; }
+    .step-num { font-family: 'Fraunces', serif; font-weight: 600; font-size: .95rem; color: var(--haldi); flex: none; }
+    .step-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.18rem; letter-spacing: -.01em; }
+    .field-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .field { flex: 1 1 140px; min-width: 0; }
+    label.lbl { display: block; font-size: .74rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; margin-bottom: 5px; }
+    input[type="text"], select { width: 100%; font-family: inherit; font-size: .98rem; color: var(--ink); background: #FCFAF6; border: 1px solid var(--line); border-radius: 11px; padding: 10px 12px; transition: border-color .15s, box-shadow .15s; }
+    input[type="text"]:focus, select:focus { outline: none; border-color: var(--haldi); box-shadow: 0 0 0 3px rgba(232,163,61,.18); }
+    .seg { display: inline-flex; background: #F3EDE2; border-radius: 11px; padding: 3px; gap: 3px; }
+    .seg button { font-family: inherit; font-size: .9rem; font-weight: 600; color: var(--ink-soft); border: none; background: transparent; padding: 7px 16px; border-radius: 8px; cursor: pointer; transition: background .15s, color .15s; }
+    .seg button.active { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(42,33,24,.12); }
+
+    .roster-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .pill { display: inline-flex; align-items: center; gap: 7px; font-size: .9rem; font-weight: 500; background: #F4EFE6; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px 6px 8px; color: var(--ink-soft); }
+    .pill .num { font-weight: 700; background: #fff; border: 1px solid var(--line); border-radius: 999px; min-width: 22px; height: 22px; display: grid; place-items: center; font-size: .78rem; color: var(--ink-soft); }
+    .pill.on { background: color-mix(in srgb, var(--dhania) 12%, white); border-color: color-mix(in srgb, var(--dhania) 35%, white); color: #2c5d36; font-weight: 700; }
+    .pill.on .num { background: var(--dhania); color: #fff; border-color: var(--dhania); }
+    .duty-line { margin-top: 12px; font-size: .92rem; color: var(--ink-soft); }
+    .duty-line b { color: var(--ink); }
+    .link-btn { background: none; border: none; color: var(--clay); font-family: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 2px; }
+    .swap-panel { margin-top: 12px; padding: 12px; border: 1px dashed var(--line); border-radius: 12px; background: #FCFAF6; display: none; }
+    .swap-panel.open { display: block; }
+
+    .meal-label { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.05rem; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .qty { display: inline-flex; align-items: center; gap: 6px; background: #F4EFE6; border: 1px solid var(--line); border-radius: 999px; padding: 2px; }
+    .qty button { width: 26px; height: 26px; border: none; background: #fff; border-radius: 999px; font-size: 1rem; font-weight: 700; color: var(--clay); cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+    .qty .qv { min-width: 20px; text-align: center; font-weight: 700; font-size: .95rem; color: var(--ink); }
+    .qty .qlbl { font-size: .62rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; padding: 0 2px; }
+    .meal-tools { display: flex; align-items: center; gap: 8px; }
+    .meal-roll { font-family: inherit; font-weight: 600; font-size: .76rem; color: var(--clay); background: color-mix(in srgb, var(--clay) 10%, white); border: 1px solid color-mix(in srgb, var(--clay) 25%, white); border-radius: 999px; padding: 5px 10px; cursor: pointer; transition: background .15s, transform .12s; white-space: nowrap; }
+    .meal-roll:hover { background: color-mix(in srgb, var(--clay) 16%, white); }
+    .meal-roll:active { transform: scale(.94); }
+    .meal { border-left: 4px solid var(--accent); padding-left: 12px; margin-bottom: 14px; }
+    .meal.breakfast { --accent: var(--haldi); } .meal.lunch { --accent: var(--dhania); } .meal.dinner { --accent: var(--clay); }
+    .slot { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .slot:last-child { margin-bottom: 0; }
+    .badge { flex: none; font-size: .64rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, white); border-radius: 6px; padding: 4px 7px; width: 52px; text-align: center; }
+    .slot input.dish { flex: 1 1 auto; font-size: .96rem; padding: 9px 10px; }
+    .slot.opt { padding: 4px 6px 4px 4px; border: 1px solid transparent; border-radius: 12px; transition: background .15s, border-color .15s, opacity .15s; }
+    .slot.opt.sel { background: color-mix(in srgb, var(--accent) 8%, white); border-color: color-mix(in srgb, var(--accent) 32%, white); }
+    .slot.opt:not(.sel) { opacity: .62; }
+    .slot.opt:not(.sel) .badge { background: #F1ECE3; color: var(--ink-soft); }
+    .radio { flex: none; width: 20px; height: 20px; border-radius: 999px; border: 2px solid var(--line); background: #fff; cursor: pointer; position: relative; transition: border-color .15s; }
+    .slot.opt.sel .radio { border-color: var(--accent); }
+    .slot.opt.sel .radio::after { content: ""; position: absolute; inset: 3px; border-radius: 999px; background: var(--accent); }
+    .dice { flex: none; width: 38px; height: 38px; border: 1px solid var(--line); background: #FCFAF6; border-radius: 10px; font-size: 1.05rem; cursor: pointer; transition: transform .2s, background .15s; }
+    .dice:hover { background: #F3EDE2; } .dice:active { transform: rotate(-22deg) scale(.92); }
+    .extras-row { display: flex; gap: 10px; }
+    .extras-row .field { flex: 1; }
+
+    .btn { font-family: inherit; font-weight: 600; font-size: 1rem; border: none; border-radius: 12px; padding: 13px 18px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 9px; transition: transform .12s, filter .15s, background .15s; width: 100%; }
+    .btn:active { transform: translateY(1px); }
+    .btn.sm { font-size: .92rem; padding: 10px 14px; }
+    .btn.ghost { background: #F3EDE2; color: var(--ink); border: 1px solid var(--line); }
+    .btn.ghost:hover { background: #ECE3D4; }
+    .btn.wa { background: var(--wa-green); color: #04331C; box-shadow: 0 6px 18px rgba(37,211,102,.30); }
+    .btn.wa:hover { filter: brightness(1.04); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: .86rem; font-weight: 500; background: color-mix(in srgb, var(--mirchi) 9%, white); color: #8a2c22; border: 1px solid color-mix(in srgb, var(--mirchi) 22%, white); border-radius: 999px; padding: 6px 12px; }
+    .chip.calm { background: #F4EFE6; color: var(--ink-soft); border-color: var(--line); }
+    .hint { font-size: .85rem; color: var(--ink-soft); margin-top: 10px; }
+    .toggle-line { display: flex; align-items: center; gap: 9px; margin-top: 12px; font-size: .9rem; color: var(--ink); }
+    .toggle-line input { width: 17px; height: 17px; accent-color: var(--dhania); }
+
+    .grocery { list-style: none; margin-top: 4px; }
+    .grocery li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 2px; border-bottom: 1px dashed var(--line); font-size: .94rem; }
+    .grocery li:last-child { border-bottom: none; }
+    .grocery .amt { color: var(--clay); font-weight: 600; white-space: nowrap; }
+
+    .preview-wrap { background: var(--wa-chatbg); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='8' cy='8' r='1' fill='%23d8cfc3'/%3E%3Ccircle cx='28' cy='22' r='1' fill='%23d8cfc3'/%3E%3C/svg%3E"); border-radius: var(--radius); padding: 16px 12px 18px; border: 1px solid var(--line); }
+    .bubble { background: var(--wa-bubble); color: #111B21; border-radius: 9px 9px 9px 2px; padding: 8px 10px 7px; max-width: 90%; margin-left: auto; box-shadow: 0 1px .5px rgba(11,27,33,.13); font-size: .9rem; position: relative; }
+    .bubble::after { content: ""; position: absolute; right: -7px; bottom: 0; border: 7px solid transparent; border-left-color: var(--wa-bubble); border-bottom: 0; }
+    .bubble .msg { white-space: pre-wrap; word-wrap: break-word; }
+    .bubble .msg b { font-weight: 700; } .bubble .msg i { font-style: italic; color: #3b4a52; }
+    .bubble .meta { text-align: right; font-size: .66rem; color: #667781; margin-top: 2px; user-select: none; }
+    .bubble .meta .tick { color: #53bdeb; letter-spacing: -2px; margin-left: 3px; }
+
+    .tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+    .tabs button { flex: 1; font-family: inherit; font-weight: 600; font-size: .9rem; border: 1px solid var(--line); background: #F4EFE6; color: var(--ink-soft); border-radius: 10px; padding: 9px 6px; cursor: pointer; }
+    .tabs button.active { background: var(--card); color: var(--ink); border-color: var(--haldi); box-shadow: 0 1px 3px rgba(42,33,24,.10); }
+
+    .actions { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+    .copied { text-align: center; font-size: .85rem; color: var(--dhania); font-weight: 600; height: 0; overflow: hidden; transition: height .2s; }
+    .copied.show { height: 22px; }
+
+    .status-note { text-align: center; font-size: .76rem; color: var(--ink-soft); margin-top: 24px; letter-spacing: .02em; line-height: 1.7; }
+    .status-note b { color: var(--clay); }
+    .dot-ind { display: inline-block; width: 7px; height: 7px; border-radius: 999px; background: var(--ink-soft); margin-right: 5px; vertical-align: middle; }
+    .dot-ind.live { background: var(--wa-green); } .dot-ind.local { background: var(--haldi); }
+    footer { text-align: center; color: var(--ink-soft); font-size: .82rem; margin-top: 16px; }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+
+<body>
+  <header>
+    <span class="eyebrow">Daily Workflow</span>
+    <h1>Mess Manager<span class="dot">.</span></h1>
+    <p class="tagline" id="tagline">Plan the day, ping the cook, post to the group.</p>
+  </header>
+
+  <section class="card">
+    <div class="step-head"><span class="step-num">01</span><span class="step-title">On duty this week</span></div>
+    <div class="roster-pills" id="roster-pills"></div>
+    <p class="duty-line" id="duty-line"></p>
+    <button class="link-btn" id="swap-toggle">🔁 Swap / cover this week</button>
+    <div class="swap-panel" id="swap-panel">
+      <div class="field-row" style="align-items:flex-end;">
+        <div class="field"><label class="lbl" for="swap-who">Covered by</label><select id="swap-who"></select></div>
+        <div class="field" style="flex:1 1 100%;"><label class="lbl" for="swap-reason">Reason (optional)</label><input type="text" id="swap-reason" placeholder="e.g. Pranjal travelling" /></div>
+      </div>
+      <button class="btn ghost sm" id="swap-confirm" style="margin-top:10px;">Confirm swap</button>
+      <p class="hint">A swap rebalances future weeks automatically — whoever's covered comes up sooner.</p>
+    </div>
+    <div class="field-row" style="margin-top:14px;">
+      <div class="field" style="flex:0 0 auto;">
+        <label class="lbl">Planning for</label>
+        <div class="seg" id="day-seg"><button data-day="0">Today</button><button data-day="1" class="active">Tomorrow</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="step-head"><span class="step-num">02</span><span class="step-title">Menu &amp; portions</span></div>
+    <div class="meal breakfast">
+      <div class="meal-label">☕ Breakfast<span class="meal-tools"><button class="meal-roll" data-meal="breakfast">🎲 Reroll</button><span class="qty" data-meal="breakfast"><button data-d="-1">−</button><span class="qlbl">qty</span><span class="qv">4</span><button data-d="1">+</button></span></span></div>
+      <div class="slot opt" data-meal="breakfast" data-pref="light"><button class="radio" aria-label="Choose light"></button><span class="badge">Light</span><input class="dish" data-k="bfLight" /><button class="dice" data-roll="bfLight" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="breakfast" data-pref="heavy"><button class="radio" aria-label="Choose heavy"></button><span class="badge">Heavy</span><input class="dish" data-k="bfHeavy" /><button class="dice" data-roll="bfHeavy" aria-label="Reroll">🎲</button></div>
+    </div>
+    <div class="meal lunch">
+      <div class="meal-label">🍛 Lunch<span class="meal-tools"><button class="meal-roll" data-meal="lunch">🎲 Reroll</button><span class="qty" data-meal="lunch"><button data-d="-1">−</button><span class="qlbl">qty</span><span class="qv">2</span><button data-d="1">+</button></span></span></div>
+      <div class="slot opt" data-meal="lunch" data-pref="light"><button class="radio" aria-label="Choose light"></button><span class="badge">Light</span><input class="dish" data-k="lunchLight" /><button class="dice" data-roll="lunchLight" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="lunch" data-pref="heavy"><button class="radio" aria-label="Choose heavy"></button><span class="badge">Heavy</span><input class="dish" data-k="lunchHeavy" /><button class="dice" data-roll="lunchHeavy" aria-label="Reroll">🎲</button></div>
+    </div>
+    <div class="meal dinner">
+      <div class="meal-label">🥘 Dinner<span class="meal-tools"><button class="meal-roll" data-meal="dinner">🎲 Reroll</button><span class="qty" data-meal="dinner"><button data-d="-1">−</button><span class="qlbl">qty</span><span class="qv">4</span><button data-d="1">+</button></span></span></div>
+      <div class="slot opt" data-meal="dinner" data-pref="light"><button class="radio" aria-label="Choose light"></button><span class="badge">Light</span><input class="dish" data-k="dinnerLight" /><button class="dice" data-roll="dinnerLight" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="dinner" data-pref="heavy"><button class="radio" aria-label="Choose heavy"></button><span class="badge">Heavy</span><input class="dish" data-k="dinnerHeavy" /><button class="dice" data-roll="dinnerHeavy" aria-label="Reroll">🎲</button></div>
+    </div>
+    <div class="extras-row">
+      <div class="field"><label class="lbl">🥗 Side</label><div class="slot" style="margin:0;"><input class="dish" data-k="extra" /><button class="dice" data-roll="extra" aria-label="Reroll">🎲</button></div></div>
+      <div class="field"><label class="lbl">🍎 Fruit</label><div class="slot" style="margin:0;"><input class="dish" data-k="fruit" /><button class="dice" data-roll="fruit" aria-label="Reroll">🎲</button></div></div>
+    </div>
+    <button class="btn ghost" id="regen" style="margin-top:16px;">✨ Regenerate whole menu</button>
+  </section>
+
+  <section class="card">
+    <div class="step-head"><span class="step-num">03</span><span class="step-title">Soak, stock &amp; groceries</span></div>
+    <label class="lbl">Soak tonight (auto-detected)</label>
+    <div class="chips" id="soak-chips"></div>
+    <label class="lbl" style="margin-top:16px;">Grocery / top-up estimate</label>
+    <ul class="grocery" id="grocery"></ul>
+    <p class="hint">Estimate from the chosen dishes, scaled by portions — verify against the shelf, then order on Country Delight / Milkbasket, then Blinkit / Instamart.</p>
+    <label class="toggle-line"><input type="checkbox" id="incl-soak" checked /> Include the soak note in the group message</label>
+  </section>
+
+  <section class="card">
+    <div class="step-head"><span class="step-num">04</span><span class="step-title">Send it</span></div>
+    <div class="tabs">
+      <button data-tab="group" class="active">👥 Group</button>
+      <button data-tab="cook">🧑‍🍳 Cook</button>
+      <button data-tab="grocery">🛒 Grocery</button>
+    </div>
+    <div class="preview-wrap">
+      <div class="bubble"><span class="msg" id="msg"></span><div class="meta"><span id="bubble-time"></span><span class="tick">✓✓</span></div></div>
+    </div>
+    <div class="actions">
+      <a class="btn wa" id="wa-share" href="#" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#04331C"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.5.1.3.7 1.1 1.5 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+        <span id="wa-label">Share to WhatsApp</span>
+      </a>
+      <button class="btn ghost" id="copy">📋 Copy message</button>
+    </div>
+    <div class="copied" id="copied">Copied — paste it in the group ✓</div>
+  </section>
+
+  <p class="status-note" id="status"></p>
+  <footer>Made with 🌶️ &amp; 💻 · one-tap mess management</footer>
+
+  <script>
+    /* =====================================================================
+       CONFIG — set these for the deployed (GitHub Pages) version.
+       Leave WEBAPP_URL blank to run fully local (state won't persist).
+       ===================================================================== */
+    let ROSTER = ["Rajneesh", "Pranjal", "Amit", "Anubhav"];
+    const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyZ7nhIDNO6DnkS_SsvFeSxpfmTd8mQAgTNeqJBj-rn8Q3KgXLqwtG7-T5oEEME9RnGTA/exec"; // paste your Apps Script /exec URL after deploying Code.gs
+    const DEFAULT_QTY = { breakfast: 4, lunch: 2, dinner: 4 };
+
+    const SHEET_ID = '1l1GS2HetL5wO3rGUhqbKp_jgpYEmSZdlJ5xgagzHcOk';
+    const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Database`;
+
+    let DATA = {
+      breakfast: { light: ["Vermicelli (Semiya Upma)","Sabudana Khichdi","Upma","Uttapam","Poha","Vegetable Quinoa","Fried Idly","Veg cheese sandwiches","Sooji Toast","Chilla","Kala Desi Chana Boiled, Onion, Tomato"], heavy: ["Aloo Paratha, curd","Paneer Paratha, curd","Methi Paratha, chutney","Pav Bhaji","Idly Sambhar","Chole, Poori","Aloo Bhaji, Poori","Bread Roll","Chole, Bhature","Dal Dhokli","Stuffed Parathas Paneer/Pyaz/Aloo/Gobhi","Masala Dosa, Chutney, Sambhar"] },
+      lunch: { light: ["Rajma, Jeera Onion Rice","Jeera Aloo, Dal, Roti","Aloo Gajar Beans, Dal, Roti","Aloo Gobhi, Dal, Roti","Bhindi, Roti, Dal","Kadhi, Rice","Lauki Kofta, Roti","Matar Mushroom, Roti","Arbi masala, Roti, Dal","Bharwa bhindi, Roti","Dal, Rice"], heavy: ["Chole, Rice","Dal makhani, rice","Bharwa shimla mirch, roti","Aloo shimla, Roti","Gatte ki sabji, Roti","Malai Kofta, Roti","Dum Aloo, Roti","Dal Baati","Methi malai matar, Roti","Egg Curry, Roti","Paneer Butter Masala","Rajma Kashmiri","Matar Mushroom"] },
+      dinner: { light: ["Veg/Peas/Masala/Soya Pulao","Tawa Pulao","Paneer bhurji, Paratha","Veg Hakka Noodles","Veg fried rice","Veg daliya","Veg Khichadi","Lauki kofta, Roti","Bhel Puri/Papdi chaat","Lemon/Tomato rice","Dal, Rice","Dhokla","Pasta","Tomato Soup","Soya Chaap"], heavy: ["Aloo/Pyaz/Paneer Paratha","Paratha with Paneer curry","Veg kofta, Roti","Chilli Paneer","Veg Manchurian","Idly, Chutney, Sambhar","Navratan Korma, Roti"] },
+      extras: ["Brinjal","Palak","Karela","Methi","Parwal","Pumpkin","Lauki","Torai","Kamal Kakdi","Kathal"],
+      fruits: ["Watermelon","Pear","Melon","Plum","Pomegranate","Jamun","Apples","Grapes","Banana","Litchi","Mangoes"]
+    };
+
+    /* ---------- split "A/B/C Dish" entries into separate dishes ---------- */
+    const SPECIAL_SPLIT = {
+      "Stuffed Parathas Paneer/Pyaz/Aloo/Gobhi": ["Paneer Stuffed Paratha","Pyaz Stuffed Paratha","Aloo Stuffed Paratha","Gobhi Stuffed Paratha"],
+      "Veg/Peas/Masala/Soya Pulao": ["Veg Pulao","Peas Pulao","Masala Pulao","Soya Pulao"],
+      "Aloo/Pyaz/Paneer Paratha": ["Aloo Paratha","Pyaz Paratha","Paneer Paratha"],
+      "Bhel Puri/Papdi chaat": ["Bhel Puri","Papdi Chaat"],
+      "Lemon/Tomato rice": ["Lemon Rice","Tomato Rice"]
+    };
+    function expandDish(name) {
+      const key = (name || "").trim();
+      if (SPECIAL_SPLIT[key]) return SPECIAL_SPLIT[key].slice();
+      if (!key.includes("/")) return [key];
+      const m = key.match(/([A-Za-z]+(?:\/[A-Za-z]+)+)/); // run of word/word/word
+      if (!m) return [key];
+      const alts = m[1].split("/").map(s => s.trim()).filter(Boolean);
+      const before = key.slice(0, m.index).trim();
+      const after = key.slice(m.index + m[1].length).trim();
+      return alts.map(a => (after ? (a + " " + after) : (before ? (before + " " + a) : a)).trim());
+    }
+    function expandList(arr) {
+      const out = [], seen = new Set();
+      (arr || []).forEach(n => expandDish(n).forEach(d => { const k = d.toLowerCase(); if (d && !seen.has(k)) { seen.add(k); out.push(d); } }));
+      return out;
+    }
+    function normalizeData(d) {
+      return {
+        breakfast: { light: expandList(d.breakfast.light), heavy: expandList(d.breakfast.heavy) },
+        lunch: { light: expandList(d.lunch.light), heavy: expandList(d.lunch.heavy) },
+        dinner: { light: expandList(d.dinner.light), heavy: expandList(d.dinner.heavy) },
+        extras: expandList(d.extras), fruits: expandList(d.fruits), _live: d._live
+      };
+    }
+
+    const SOAK_RULES = [
+      { test: n => /makhani/.test(n), label: "Whole urad + rajma — overnight" },
+      { test: n => /rajma/.test(n), label: "Rajma — overnight" },
+      { test: n => /kala/.test(n) && /chana/.test(n), label: "Kala chana — overnight" },
+      { test: n => /chole|chhole/.test(n) || (/chana/.test(n) && !/kala/.test(n)), label: "Kabuli chana — overnight" },
+      { test: n => /bhature|bhatura/.test(n), label: "Set bhatura dough — night before" },
+      { test: n => /sabudana/.test(n), label: "Sabudana — 4–5 hrs" },
+      { test: n => /idl|dosa|uttapam|medu|vada/.test(n), label: "Rice + urad — ferment batter (day ahead)" }
+    ];
+    function detectSoak(names) { const f = new Map(); names.forEach(raw => { const n = (raw || "").toLowerCase(); SOAK_RULES.forEach(r => { if (r.test(n)) f.set(r.label, true); }); }); return [...f.keys()]; }
+
+    const ING = [
+      { kw: /paneer/, item: "Paneer", g: 80 },
+      { kw: /makhani/, item: "Rajma + urad (dry)", g: 55 },
+      { kw: /rajma/, item: "Rajma (dry)", g: 55 },
+      { kw: /kala.*chana|desi chana/, item: "Kala chana (dry)", g: 50 },
+      { kw: /chole|chhole/, item: "Kabuli chana (dry)", g: 55 },
+      { kw: /sabudana/, item: "Sabudana", g: 60 },
+      { kw: /aloo|potato/, item: "Potato", g: 120 },
+      { kw: /gobhi|gobi/, item: "Cauliflower", g: 120 },
+      { kw: /bhindi/, item: "Bhindi", g: 120 },
+      { kw: /matar|peas/, item: "Green peas", g: 60 },
+      { kw: /palak|spinach/, item: "Palak", g: 110 },
+      { kw: /mushroom/, item: "Mushroom", g: 90 },
+      { kw: /lauki/, item: "Lauki", g: 150 },
+      { kw: /arbi/, item: "Arbi", g: 120 },
+      { kw: /gajar|carrot/, item: "Carrot", g: 80 },
+      { kw: /shimla|capsicum/, item: "Capsicum", g: 80 },
+      { kw: /methi/, item: "Methi", g: 90 },
+      { kw: /karela/, item: "Karela", g: 100 },
+      { kw: /soya|chaap/, item: "Soya / chaap", g: 50 },
+      { kw: /noodle|hakka|manchurian|chowmein/, item: "Noodles", g: 70 },
+      { kw: /pasta/, item: "Pasta", g: 70 },
+      { kw: /quinoa/, item: "Quinoa", g: 60 },
+      { kw: /daliya/, item: "Daliya", g: 60 },
+      { kw: /poha/, item: "Poha", g: 60 },
+      { kw: /dal|kadhi|sambhar|sambar/, item: "Dal", g: 45 },
+      { kw: /rice|pulao|pulav|biryani|khichdi|khichadi/, item: "Rice", g: 80 },
+      { kw: /roti|paratha|poori|puri|chapati|baati|dhokli/, item: "Atta", g: 60 },
+      { kw: /bhature|bhatura/, item: "Maida", g: 60 }
+    ];
+    const PIECE = [
+      { kw: /egg/, item: "Eggs", each: 1.5 },
+      { kw: /bread|sandwich|pav|roll/, item: "Bread / pav", each: 2 }
+    ];
+    function fmtG(g) { g = Math.round(g / 50) * 50; if (g >= 1000) { const k = g / 1000; return "~" + (Number.isInteger(k) ? k : k.toFixed(1)) + " kg"; } return "~" + g + " g"; }
+
+    function deriveGrocery() {
+      const m = state.menu, q = state.qty;
+      const mains = [[chosenDish("breakfast"), q.breakfast], [chosenDish("lunch"), q.lunch], [chosenDish("dinner"), q.dinner]];
+      const grams = {}, pieces = {}; let curryHeads = 0;
+      mains.forEach(([dish, cnt]) => {
+        if (!dish || dish === "—") return;
+        const n = dish.toLowerCase(); const heads = Math.max(1, cnt);
+        ING.forEach(r => { if (r.kw.test(n)) grams[r.item] = (grams[r.item] || 0) + r.g * heads; });
+        PIECE.forEach(r => { if (r.kw.test(n)) pieces[r.item] = (pieces[r.item] || 0) + r.each * heads; });
+        if (/masala|curry|gravy|kofta|butter|makhani|korma|rajma|chole|dal|kadhi|matar|bhurji|paneer/.test(n)) curryHeads += heads;
+        if (/curd|paratha|rajma|kadhi/.test(n)) grams["Curd"] = (grams["Curd"] || 0) + 40 * heads;
+      });
+      if (m.extra && m.extra !== "—") grams[m.extra] = (grams[m.extra] || 0) + 90 * Math.max(q.lunch, q.dinner);
+      if (m.fruit && m.fruit !== "—") pieces[m.fruit] = (pieces[m.fruit] || 0) + Math.max(q.breakfast, q.dinner);
+      if (curryHeads) { grams["Onion"] = (grams["Onion"] || 0) + 45 * curryHeads; grams["Tomato"] = (grams["Tomato"] || 0) + 40 * curryHeads; }
+      const out = [];
+      Object.keys(grams).forEach(k => out.push({ item: k, amt: fmtG(grams[k]) }));
+      Object.keys(pieces).forEach(k => out.push({ item: k, amt: Math.round(pieces[k]) + " pc" }));
+      if (curryHeads) out.push({ item: "Ginger-garlic, green chilli, coriander, lemon", amt: "to taste" });
+      return out;
+    }
+
+    const rand = a => a && a.length ? a[Math.floor(Math.random() * a.length)] : "—";
+    function isoWeek(d) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); const ys = new Date(Date.UTC(t.getUTCFullYear(), 0, 1)); return Math.ceil((((t - ys) / 86400000) + 1) / 7); }
+    function isoYear(d) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); return t.getUTCFullYear(); }
+    function weekKey(d) { return isoYear(d) + "-W" + String(isoWeek(d)).padStart(2, "0"); }
+    function mondayOf(d) { const x = new Date(d); const day = (x.getDay() + 6) % 7; x.setDate(x.getDate() - day); return x.toISOString().slice(0, 10); }
+    function targetDate() { const d = new Date(); d.setDate(d.getDate() + state.dayOffset); return d; }
+    const fmtLong = d => d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+
+    function pick(counts, last) {
+      const min = Math.min(...ROSTER.map(p => counts[p] || 0));
+      const atMin = ROSTER.filter(p => (counts[p] || 0) === min);
+      if (atMin.length > 1 && last && atMin.includes(last)) { const alt = atMin.find(p => p !== last); if (alt) return alt; }
+      return atMin[0];
+    }
+    function localState() {
+      const wk = isoWeek(new Date()); const counts = {}; ROSTER.forEach(p => counts[p] = 0);
+      let last = null, cur = ROSTER[0];
+      for (let i = 1; i <= wk; i++) { const m = pick(counts, last); counts[m]++; last = m; cur = m; }
+      return { manager: cur, counts, swapped: false };
+    }
+
+    const state = { dayOffset: 1, menu: {}, qty: { ...DEFAULT_QTY }, pref: { breakfast: "light", lunch: "light", dinner: "light" }, rot: null, tab: "group", backend: "local" };
+    const ACTIVE_KEY = { breakfast: { light: "bfLight", heavy: "bfHeavy" }, lunch: { light: "lunchLight", heavy: "lunchHeavy" }, dinner: { light: "dinnerLight", heavy: "dinnerHeavy" } };
+    const chosenDish = meal => state.menu[ACTIVE_KEY[meal][state.pref[meal]]] || "—";
+    const chosenList = () => [chosenDish("breakfast"), chosenDish("lunch"), chosenDish("dinner"), state.menu.extra, state.menu.fruit].filter(x => x && x !== "—");
+    const $ = s => document.querySelector(s);
+    const slots = ["bfLight","bfHeavy","lunchLight","lunchHeavy","dinnerLight","dinnerHeavy","extra","fruit"];
+
+    function rollSlot(k) {
+      const map = { bfLight: () => rand(DATA.breakfast.light), bfHeavy: () => rand(DATA.breakfast.heavy), lunchLight: () => rand(DATA.lunch.light), lunchHeavy: () => rand(DATA.lunch.heavy), dinnerLight: () => rand(DATA.dinner.light), dinnerHeavy: () => rand(DATA.dinner.heavy), extra: () => rand(DATA.extras), fruit: () => rand(DATA.fruits) };
+      state.menu[k] = map[k](); const i = document.querySelector(`input[data-k="${k}"]`); if (i) i.value = state.menu[k];
+    }
+    function regenAll() { slots.forEach(rollSlot); render(); }
+    const MEAL_SLOTS = { breakfast: ["bfLight","bfHeavy"], lunch: ["lunchLight","lunchHeavy"], dinner: ["dinnerLight","dinnerHeavy"] };
+    function rollMeal(meal) { (MEAL_SLOTS[meal] || []).forEach(rollSlot); render(); }
+
+    function jsonp(params) {
+      return new Promise((res, rej) => {
+        if (!WEBAPP_URL) return rej(new Error("no-backend"));
+        const cb = "_mm" + Math.random().toString(36).slice(2);
+        window[cb] = d => { res(d); cleanup(); };
+        const s = document.createElement("script");
+        s.src = WEBAPP_URL + "?" + new URLSearchParams({ ...params, callback: cb }).toString();
+        s.onerror = () => { rej(new Error("net")); cleanup(); };
+        const t = setTimeout(() => { rej(new Error("timeout")); cleanup(); }, 7000);
+        function cleanup() { delete window[cb]; s.remove(); clearTimeout(t); }
+        document.body.appendChild(s);
+      });
+    }
+    async function loadRotation() {
+      const d = new Date();
+      try {
+        const r = await jsonp({ action: "state", week: weekKey(d), start: mondayOf(d) });
+        if (r && r.ok) { if (r.roster) ROSTER = r.roster; state.rot = { manager: r.manager, counts: r.counts, swapped: false }; state.backend = "live"; return; }
+        throw new Error("bad");
+      } catch (e) { state.rot = localState(); state.backend = "local"; }
+    }
+    async function doSwap(newM, reason) {
+      const d = new Date();
+      if (state.backend === "live") {
+        try { const r = await jsonp({ action: "swap", week: weekKey(d), manager: newM, note: reason || "", start: mondayOf(d) }); if (r && r.ok) { state.rot = { manager: r.manager, counts: r.counts, swapped: true }; return true; } } catch (e) {}
+      }
+      const orig = state.rot.manager;
+      state.rot.counts[orig] = Math.max(0, (state.rot.counts[orig] || 0) - 1);
+      state.rot.counts[newM] = (state.rot.counts[newM] || 0) + 1;
+      state.rot.manager = newM; state.rot.swapped = true; return true;
+    }
+
+    function buildGroup() {
+      const d = targetDate(), m = state.menu, q = state.qty;
+      const dayWord = state.dayOffset === 0 ? "today" : "tomorrow";
+      const tag = meal => state.pref[meal] === "heavy" ? "heavy" : "light";
+      let t = `🍱 *Mess Menu — ${fmtLong(d)}*\n\n`;
+      t += `☕ *Breakfast* (${q.breakfast}) — ${chosenDish("breakfast")}\n`;
+      t += `🍛 *Lunch* (${q.lunch}) — ${chosenDish("lunch")}\n`;
+      t += `🥘 *Dinner* (${q.dinner}) — ${chosenDish("dinner")}\n\n`;
+      t += `🥗 Side: ${m.extra}   🍎 Fruit: ${m.fruit}\n\n`;
+      t += `📋 *Headcount for ${dayWord}* — default B:${q.breakfast} · L:${q.lunch} · D:${q.dinner}\nReply only if you're in/out:\n• Lunch: ✅ / ❌\n• Dinner: ✅ / ❌\n`;
+      const soak = detectSoak(chosenList());
+      if ($('#incl-soak').checked && soak.length) t += `\n🧑‍🍳 _Cook: please soak — ${soak.join("; ")}._\n`;
+      t += `\n— Mess Manager: ${state.rot.manager}`;
+      return t;
+    }
+    function buildCook() {
+      const d = targetDate(), m = state.menu, q = state.qty;
+      let t = `🧑‍🍳 *Cook plan — ${fmtLong(d)}*\n\n`;
+      t += `Portions → Breakfast: ${q.breakfast} · Lunch: ${q.lunch} · Dinner: ${q.dinner}\n\n`;
+      t += `☕ Breakfast: ${chosenDish("breakfast")}\n`;
+      t += `🍛 Lunch: ${chosenDish("lunch")}\n`;
+      t += `🥘 Dinner: ${chosenDish("dinner")}\n`;
+      t += `🥗 Side: ${m.extra}\n\n`;
+      const soak = detectSoak(chosenList());
+      t += soak.length ? `🌙 *Soak tonight:* ${soak.join("; ")}.\n\n` : `🌙 Nothing to soak tonight.\n\n`;
+      t += `Pantry check: dal, rice, atta, oil, condiments — flag if low.\n— ${state.rot.manager}`;
+      return t;
+    }
+    function buildGrocery() {
+      const d = targetDate(), list = deriveGrocery();
+      let t = `🛒 *Grocery / top-up — ${fmtLong(d)}*\n\n`;
+      t += list.map(x => `• ${x.item} — ${x.amt}`).join("\n");
+      t += `\n\n_Estimate from today's menu — verify against stock._`;
+      return t;
+    }
+    function currentMessage() { return state.tab === "cook" ? buildCook() : state.tab === "grocery" ? buildGrocery() : buildGroup(); }
+    function waToHtml(s) { const esc = s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); return esc.replace(/\*(.+?)\*/g, "<b>$1</b>").replace(/_(.+?)_/g, "<i>$1</i>"); }
+
+    function renderRoster() {
+      const r = state.rot; const pills = $('#roster-pills'); pills.innerHTML = "";
+      ROSTER.forEach(p => { const on = p === r.manager; const el = document.createElement("span"); el.className = "pill" + (on ? " on" : ""); el.innerHTML = `<span class="num">${r.counts[p] || 0}</span>${p}${on ? " · on duty" : ""}`; pills.appendChild(el); });
+      $('#duty-line').innerHTML = `<b>${r.manager}</b> is mess manager this week (${weekKey(new Date())}). Numbers show weeks served — lowest goes next.` + (r.swapped ? " <i>Swapped.</i>" : "");
+      const sel = $('#swap-who'); sel.innerHTML = ""; ROSTER.filter(p => p !== r.manager).forEach(p => { const o = document.createElement("option"); o.value = p; o.textContent = p; sel.appendChild(o); });
+    }
+    function renderGrocery() { const ul = $('#grocery'); const list = deriveGrocery(); ul.innerHTML = list.length ? list.map(x => `<li><span>${x.item}</span><span class="amt">${x.amt}</span></li>`).join("") : `<li><span>Nothing flagged — generate a menu.</span></li>`; }
+    function renderSelection() {
+      document.querySelectorAll('.slot.opt').forEach(el => {
+        el.classList.toggle('sel', state.pref[el.dataset.meal] === el.dataset.pref);
+      });
+    }
+    function render() {
+      if (!state.rot) return;
+      renderRoster(); renderGrocery(); renderSelection();
+      const soak = detectSoak(chosenList());
+      $('#soak-chips').innerHTML = soak.length ? soak.map(s => `<span class="chip">🌙 ${s}</span>`).join("") : `<span class="chip calm">Nothing needs soaking 🎉</span>`;
+      const msg = currentMessage();
+      $('#msg').innerHTML = waToHtml(msg);
+      $('#bubble-time').textContent = new Date().toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' });
+      $('#wa-share').href = "https://wa.me/?text=" + encodeURIComponent(msg);
+      $('#copy').dataset.msg = msg;
+      $('#wa-label').textContent = state.tab === "cook" ? "Send to cook" : state.tab === "grocery" ? "Share grocery list" : "Share to WhatsApp";
+      const d = targetDate();
+      $('#tagline').textContent = `Planning ${state.dayOffset === 0 ? "today" : "tomorrow"} · ${fmtLong(d)}`;
+      $('#status').innerHTML = `<span class="dot-ind ${state.backend === 'live' ? 'live' : 'local'}"></span>Rotation: <b>${state.backend === 'live' ? 'synced to Google Sheet' : 'local only (set WEBAPP_URL to persist)'}</b><br><span class="dot-ind ${DATA._live ? 'live' : 'local'}"></span>Dishes: <b>${DATA._live ? 'live from sheet' : 'embedded list'}</b>`;
+    }
+
+    function parseCSV(text) { const rows = []; let row = [], cell = "", q = false; for (let i = 0; i < text.length; i++) { const c = text[i], nx = text[i + 1]; if (c === '"') { if (q && nx === '"') { cell += '"'; i++; } else q = !q; } else if (c === ',' && !q) { row.push(cell); cell = ""; } else if ((c === '\n' || c === '\r') && !q) { if (c === '\r' && nx === '\n') i++; if (row.length || cell) { row.push(cell); rows.push(row); } row = []; cell = ""; } else cell += c; } if (row.length || cell) { row.push(cell); rows.push(row); } return rows; }
+    async function syncDishes() {
+      try {
+        const res = await fetch(CSV_URL); if (!res.ok) throw 0;
+        const rows = parseCSV(await res.text()); rows.shift();
+        const f = { breakfast: { light: [], heavy: [] }, lunch: { light: [], heavy: [] }, dinner: { light: [], heavy: [] }, extras: [], fruits: [] };
+        rows.forEach(r => { if (r.length < 2) return; const name = (r[0] || "").replace(/^"|"$/g, "").trim(); const cat = (r[1] || "").replace(/^"|"$/g, "").toLowerCase().trim(); const type = (r[2] || "").replace(/^"|"$/g, "").toLowerCase().trim(); if (!name) return; if (["breakfast","lunch","dinner"].includes(cat)) { if (type === "light") f[cat].light.push(name); else if (type === "heavy") f[cat].heavy.push(name); } else if (cat === "side") f.extras.push(name); else if (cat === "fruit") f.fruits.push(name); });
+        if (f.breakfast.light.length && f.lunch.heavy.length) { f._live = true; DATA = normalizeData(f); regenAll(); }
+      } catch (e) {}
+      render();
+    }
+
+    document.querySelectorAll('.dice').forEach(b => b.addEventListener('click', () => { rollSlot(b.dataset.roll); render(); }));
+    document.querySelectorAll('.meal-roll').forEach(b => b.addEventListener('click', () => rollMeal(b.dataset.meal)));
+    document.querySelectorAll('.slot.opt').forEach(row => row.addEventListener('click', e => {
+      if (e.target.closest('input, .dice')) return; // don't hijack typing or rerolling
+      state.pref[row.dataset.meal] = row.dataset.pref; render();
+    }));
+    document.querySelectorAll('input.dish').forEach(i => i.addEventListener('input', () => { state.menu[i.dataset.k] = i.value; render(); }));
+    $('#regen').addEventListener('click', regenAll);
+    $('#incl-soak').addEventListener('change', render);
+    document.querySelectorAll('.qty').forEach(q => q.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => { const meal = q.dataset.meal; const next = Math.max(0, Math.min(30, state.qty[meal] + (+btn.dataset.d))); state.qty[meal] = next; q.querySelector('.qv').textContent = next; render(); })));
+    document.querySelectorAll('#day-seg button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('#day-seg button').forEach(x => x.classList.remove('active')); b.classList.add('active'); state.dayOffset = +b.dataset.day; render(); }));
+    document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.tabs button').forEach(x => x.classList.remove('active')); b.classList.add('active'); state.tab = b.dataset.tab; render(); }));
+    $('#swap-toggle').addEventListener('click', () => $('#swap-panel').classList.toggle('open'));
+    $('#swap-confirm').addEventListener('click', async () => {
+      const who = $('#swap-who').value; const reason = $('#swap-reason').value.trim(); if (!who) return;
+      $('#swap-confirm').disabled = true; $('#swap-confirm').textContent = "Saving…";
+      await doSwap(who, reason);
+      $('#swap-confirm').disabled = false; $('#swap-confirm').textContent = "Confirm swap";
+      $('#swap-panel').classList.remove('open'); $('#swap-reason').value = ""; render();
+    });
+    $('#copy').addEventListener('click', async () => {
+      const msg = $('#copy').dataset.msg || "";
+      try { await navigator.clipboard.writeText(msg); } catch (e) { const ta = document.createElement('textarea'); ta.value = msg; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+      const c = $('#copied'); c.classList.add('show'); setTimeout(() => c.classList.remove('show'), 1800);
+    });
+
+    (async function init() {
+      $('.qty[data-meal="breakfast"] .qv').textContent = DEFAULT_QTY.breakfast;
+      $('.qty[data-meal="lunch"] .qv').textContent = DEFAULT_QTY.lunch;
+      $('.qty[data-meal="dinner"] .qv').textContent = DEFAULT_QTY.dinner;
+      await loadRotation(); DATA = normalizeData(DATA); regenAll(); syncDishes();
+    })();
+  </script>
+</body>
+
+</html>
