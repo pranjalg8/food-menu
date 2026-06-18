@@ -38,7 +38,7 @@ function doGet(e) {
 
   try {
     if (action === 'state') result = handleState(e.parameter.week, e.parameter.start);
-    else if (action === 'swap') result = handleSwap(e.parameter.week, e.parameter.manager, e.parameter.note, e.parameter.start);
+    else if (action === 'swap') result = handleSwap(e.parameter.week, e.parameter.manager, e.parameter.origM, e.parameter.note, e.parameter.days, e.parameter.start);
     else if (action === 'log') result = handleLog(e.parameter);
     
     result.ok = true;
@@ -55,42 +55,62 @@ const ROSTER = ["Rajneesh", "Pranjal", "Amit", "Anubhav"];
 function handleState(wk, start) {
   const sheet = getOrCreateSheet('MessRotation');
   const data = sheet.getDataRange().getValues();
-  let row = data.find(r => r[0] === wk);
+  let weekEntries = data.filter(r => r[0] === wk);
   
   const counts = {};
-  ROSTER.forEach(p => {
-    counts[p] = data.filter(r => r[1] === p).length;
-  });
+  ROSTER.forEach(p => counts[p] = 0);
+
+  for (let i = 1; i < data.length; i++) {
+    let person = data[i][1];
+    let days = parseFloat(data[i][5]);
+    if (isNaN(days)) days = 7;
+    if (ROSTER.includes(person)) counts[person] += days;
+  }
 
   let manager;
-  if (row) {
-    manager = row[1];
+  if (weekEntries.length > 0) {
+    manager = weekEntries[weekEntries.length - 1][1];
   } else {
-    // Pick person with lowest count, tie-break by ROSTER order
+    // Pick person with lowest count (days), tie-break by ROSTER order
     manager = ROSTER.map(p => ({name: p, count: counts[p]}))
                    .sort((a,b) => a.count - b.count)[0].name;
-    sheet.appendRow([wk, manager, 'Auto', start, new Date()]);
-    counts[manager]++;
+    sheet.appendRow([wk, manager, 'Auto', start, new Date(), 7]);
+    counts[manager] += 7;
   }
 
   return { manager, counts, roster: ROSTER, recent: getRecentDishes() };
 }
 
-function handleSwap(wk, newM, note, start) {
+function handleSwap(wk, newM, origM, note, days, start) {
   const sheet = getOrCreateSheet('MessRotation');
   const data = sheet.getDataRange().getValues();
-  const rowIdx = data.findIndex(r => r[0] === wk);
   
-  if (rowIdx > -1) {
-    sheet.getRange(rowIdx + 1, 2, 1, 3).setValues([[newM, 'Swap: ' + note, new Date()]]);
+  let d = parseFloat(days);
+  if (isNaN(d) || d < 1) d = 7;
+
+  // Find the original assignment
+  let origRowIdx = data.findIndex(r => r[0] === wk && r[1] === origM);
+  
+  if (origRowIdx > -1) {
+    let origDays = parseFloat(data[origRowIdx][5]);
+    if (isNaN(origDays)) origDays = 7;
+    let newOrigDays = Math.max(0, origDays - d);
+    sheet.getRange(origRowIdx + 1, 6).setValue(newOrigDays);
+    sheet.appendRow([wk, newM, 'Cover: ' + note, start, new Date(), d]);
   } else {
-    sheet.appendRow([wk, newM, 'Swap: ' + note, start, new Date()]);
+    sheet.appendRow([wk, newM, 'Swap: ' + note, start, new Date(), d]);
   }
   
   // Recalculate counts
   const newData = sheet.getDataRange().getValues();
   const counts = {};
-  ROSTER.forEach(p => counts[p] = newData.filter(r => r[1] === p).length);
+  ROSTER.forEach(p => counts[p] = 0);
+  for (let i = 1; i < newData.length; i++) {
+    let person = newData[i][1];
+    let ds = parseFloat(newData[i][5]);
+    if (isNaN(ds)) ds = 7;
+    if (ROSTER.includes(person)) counts[person] += ds;
+  }
   
   return { manager: newM, counts, roster: ROSTER };
 }
