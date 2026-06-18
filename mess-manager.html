@@ -71,8 +71,8 @@
     .slot { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
     .slot:last-child { margin-bottom: 0; }
     .badge { flex: none; font-size: .64rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, white); border-radius: 6px; padding: 4px 7px; width: 52px; text-align: center; }
-    .slot input.dish { flex: 1 1 auto; font-size: .96rem; padding: 9px 10px; border-radius: 11px; }
-    .slot.opt { padding: 4px 6px 4px 4px; border: 1px solid transparent; border-radius: 12px; cursor: pointer; transition: background .15s, border-color .15s, opacity .15s; }
+    .slot input.dish { flex: 1 1 auto; font-size: .96rem; padding: 9px 10px; }
+    .slot.opt { padding: 4px 6px 4px 4px; border: 1px solid transparent; border-radius: 12px; transition: background .15s, border-color .15s, opacity .15s; }
     .slot.opt.sel { background: color-mix(in srgb, var(--accent) 8%, white); border-color: color-mix(in srgb, var(--accent) 32%, white); }
     .slot.opt:not(.sel) { opacity: .62; }
     .slot.opt:not(.sel) .badge { background: #F1ECE3; color: var(--ink-soft); }
@@ -126,10 +126,6 @@
     .dot-ind.live { background: var(--wa-green); } .dot-ind.local { background: var(--haldi); }
     footer { text-align: center; color: var(--ink-soft); font-size: .82rem; margin-top: 16px; }
 
-    .recent-list { margin-top: 12px; font-size: .84rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 8px; }
-    .recent-list summary { cursor: pointer; font-weight: 600; margin-bottom: 4px; }
-    .recent-item { display: inline-block; background: #F4EFE6; padding: 2px 8px; border-radius: 6px; margin: 2px; }
-
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
@@ -166,21 +162,21 @@
     <div class="step-head"><span class="step-num">02</span><span class="step-title">Menu &amp; portions</span></div>
     <div class="meal breakfast">
       <div class="meal-label">☕ Breakfast<span class="meal-tools"><button class="meal-roll" data-meal="breakfast">🎲 Reroll</button><span class="qty" data-meal="breakfast"><button data-d="-1">−</button><span class="qlbl">qty</span><span class="qv">4</span><button data-d="1">+</button></span></span></div>
-      <div class="slot opt" data-meal="breakfast" data-pref="light"><div class="radio" aria-label="Choose light"></div><span class="badge">Light</span><input class="dish" data-k="bfLight" /><button class="dice" data-roll="bfLight" aria-label="Reroll">🎲</button></div>
-      <div class="slot opt" data-meal="breakfast" data-pref="heavy"><div class="radio" aria-label="Choose heavy"></div><span class="badge">Heavy</span><input class="dish" data-k="bfHeavy" /><button class="dice" data-roll="bfHeavy" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="breakfast" data-pref="light"><button class="radio" aria-label="Choose light"></button><span class="badge">Light</span><input class="dish" data-k="bfLight" /><button class="dice" data-roll="bfLight" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="breakfast" data-pref="heavy"><button class="radio" aria-label="Choose heavy"></button><span class="badge">Heavy</span><input class="dish" data-k="bfHeavy" /><button class="dice" data-roll="bfHeavy" aria-label="Reroll">🎲</button></div>
     </div>
     <div class="meal lunch">
       <div class="meal-label">🍛 Lunch<span class="meal-tools"><button class="meal-roll" data-meal="lunch">🎲 Reroll</button><span class="qty" data-meal="lunch"><button data-d="-1">−</button><span class="qlbl">qty</span><span class="qv">2</span><button data-d="1">+</button></span></span></div>
-      <div class="slot opt" data-meal="lunch" data-pref="light"><div class="radio" aria-label="Choose light"></div><span class="badge">Light</span><input class="dish" data-k="lunchLight" /><button class="dice" data-roll="lunchLight" aria-label="Reroll">🎲</button></div>
-      <div class="slot opt" data-meal="lunch" data-pref="heavy"><div class="radio" aria-label="Choose heavy"></div><span class="badge">Heavy</span><input class="dish" data-k="lunchHeavy" /><button class="dice" data-roll="lunchHeavy" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="lunch" data-pref="light"><button class="radio" aria-label="Choose light"></button><span class="badge">Light</span><input class="dish" data-k="lunchLight" /><button class="dice" data-roll="lunchLight" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="lunch" data-pref="heavy"><button class="radio" aria-label="Choose heavy"></button><span class="badge">Heavy</span><input class="dish" data-k="lunchHeavy" /><button class="dice" data-roll="lunchHeavy" aria-label="Reroll">🎲</button></div>
     </div>
     <div class="meal dinner">
       <div class="meal-label">🥘 Dinner<span class="meal-tools"><button class="meal-roll" data-meal="dinner">🎲 Reroll</button><span class="qty" data-meal="dinner"><button data-d="-1">−</button><span class="qlbl">qty</span><span class="qv">4</span><button data-d="1">+</button></span></span></div>
-      <div class="slot opt" data-meal="dinner" data-pref="light"><div class="radio" aria-label="Choose light"></div><span class="badge">Light</span><input class="dish" data-k="dinnerLight" /><button class="dice" data-roll="dinnerLight" aria-label="Reroll">🎲</button></div>
-      <div class="slot opt" data-meal="dinner" data-pref="heavy"><div class="radio" aria-label="Choose heavy"></div><span class="badge">Heavy</span><input class="dish" data-k="dinnerHeavy" /><button class="dice" data-roll="dinnerHeavy" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="dinner" data-pref="light"><button class="radio" aria-label="Choose light"></button><span class="badge">Light</span><input class="dish" data-k="dinnerLight" /><button class="dice" data-roll="dinnerLight" aria-label="Reroll">🎲</button></div>
+      <div class="slot opt" data-meal="dinner" data-pref="heavy"><button class="radio" aria-label="Choose heavy"></button><span class="badge">Heavy</span><input class="dish" data-k="dinnerHeavy" /><button class="dice" data-roll="dinnerHeavy" aria-label="Reroll">🎲</button></div>
     </div>
     <div class="extras-row">
-      <div class="field"><label class="lbl">🥗 Accompaniment</label><div class="slot" style="margin:0;"><input class="dish" data-k="extra" /><button class="dice" data-roll="extra" aria-label="Reroll">🎲</button></div></div>
+      <div class="field"><label class="lbl">🥗 Side</label><div class="slot" style="margin:0;"><input class="dish" data-k="extra" /><button class="dice" data-roll="extra" aria-label="Reroll">🎲</button></div></div>
       <div class="field"><label class="lbl">🍎 Fruit</label><div class="slot" style="margin:0;"><input class="dish" data-k="fruit" /><button class="dice" data-roll="fruit" aria-label="Reroll">🎲</button></div></div>
     </div>
     <button class="btn ghost" id="regen" style="margin-top:16px;">✨ Regenerate whole menu</button>
@@ -192,12 +188,6 @@
     <div class="chips" id="soak-chips"></div>
     <label class="lbl" style="margin-top:16px;">Grocery / top-up estimate</label>
     <ul class="grocery" id="grocery"></ul>
-    <div id="grocery-apps" style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;">
-      <a href="https://www.countrydelight.in/" target="_blank" class="meal-roll" style="text-decoration:none; background:#eee; color:#444; border-color:#ccc;">🥛 Country Delight</a>
-      <a href="https://www.milkbasket.com/" target="_blank" class="meal-roll" style="text-decoration:none; background:#eee; color:#444; border-color:#ccc;">🧺 Milkbasket</a>
-      <a href="https://blinkit.com/" target="_blank" class="meal-roll" style="text-decoration:none; background:#eee; color:#444; border-color:#ccc;">⚡ Blinkit</a>
-      <a href="https://www.swiggy.com/instamart" target="_blank" class="meal-roll" style="text-decoration:none; background:#eee; color:#444; border-color:#ccc;">🛒 Instamart</a>
-    </div>
     <p class="hint">Estimate from the chosen dishes, scaled by portions — verify against the shelf, then order on Country Delight / Milkbasket, then Blinkit / Instamart.</p>
     <label class="toggle-line"><input type="checkbox" id="incl-soak" checked /> Include the soak note in the group message</label>
   </section>
@@ -220,12 +210,6 @@
       <button class="btn ghost" id="copy">📋 Copy message</button>
     </div>
     <div class="copied" id="copied">Copied — paste it in the group ✓</div>
-    <div id="recent-wrap" class="recent-list" style="display:none;">
-      <details>
-        <summary>📜 Recently shared (avoid repeats)</summary>
-        <div id="recent-items"></div>
-      </details>
-    </div>
   </section>
 
   <p class="status-note" id="status"></p>
@@ -233,26 +217,25 @@
 
   <script>
     /* =====================================================================
-       CONFIG
+       CONFIG — set these for the deployed (GitHub Pages) version.
+       Leave WEBAPP_URL blank to run fully local (state won't persist).
        ===================================================================== */
     let ROSTER = ["Rajneesh", "Pranjal", "Amit", "Anubhav"];
-    const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyZ7nhIDNO6DnkS_SsvFeSxpfmTd8mQAgTNeqJBj-rn8Q3KgXLqwtG7-T5oEEME9RnGTA/exec";
+    const WEBAPP_URL = ""; // paste your Apps Script /exec URL after deploying Code.gs
     const DEFAULT_QTY = { breakfast: 4, lunch: 2, dinner: 4 };
 
     const SHEET_ID = '1l1GS2HetL5wO3rGUhqbKp_jgpYEmSZdlJ5xgagzHcOk';
     const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Database`;
 
-    const ACCOMPANIMENTS = ["Boondi Raita","Cucumber Raita","Mixed Veg Raita","Pineapple Raita","Papad (Roasted)","Papad (Fried)","Green Salad","Onion & Lemon Salad","Kachumber Salad","Mint Chutney","Coriander Chutney","Pickle","Masala Chaas"];
-
     let DATA = {
       breakfast: { light: ["Vermicelli (Semiya Upma)","Sabudana Khichdi","Upma","Uttapam","Poha","Vegetable Quinoa","Fried Idly","Veg cheese sandwiches","Sooji Toast","Chilla","Kala Desi Chana Boiled, Onion, Tomato"], heavy: ["Aloo Paratha, curd","Paneer Paratha, curd","Methi Paratha, chutney","Pav Bhaji","Idly Sambhar","Chole, Poori","Aloo Bhaji, Poori","Bread Roll","Chole, Bhature","Dal Dhokli","Stuffed Parathas Paneer/Pyaz/Aloo/Gobhi","Masala Dosa, Chutney, Sambhar"] },
       lunch: { light: ["Rajma, Jeera Onion Rice","Jeera Aloo, Dal, Roti","Aloo Gajar Beans, Dal, Roti","Aloo Gobhi, Dal, Roti","Bhindi, Roti, Dal","Kadhi, Rice","Lauki Kofta, Roti","Matar Mushroom, Roti","Arbi masala, Roti, Dal","Bharwa bhindi, Roti","Dal, Rice"], heavy: ["Chole, Rice","Dal makhani, rice","Bharwa shimla mirch, roti","Aloo shimla, Roti","Gatte ki sabji, Roti","Malai Kofta, Roti","Dum Aloo, Roti","Dal Baati","Methi malai matar, Roti","Egg Curry, Roti","Paneer Butter Masala","Rajma Kashmiri","Matar Mushroom"] },
       dinner: { light: ["Veg/Peas/Masala/Soya Pulao","Tawa Pulao","Paneer bhurji, Paratha","Veg Hakka Noodles","Veg fried rice","Veg daliya","Veg Khichadi","Lauki kofta, Roti","Bhel Puri/Papdi chaat","Lemon/Tomato rice","Dal, Rice","Dhokla","Pasta","Tomato Soup","Soya Chaap"], heavy: ["Aloo/Pyaz/Paneer Paratha","Paratha with Paneer curry","Veg kofta, Roti","Chilli Paneer","Veg Manchurian","Idly, Chutney, Sambhar","Navratan Korma, Roti"] },
-      extras: ACCOMPANIMENTS,
+      extras: ["Brinjal","Palak","Karela","Methi","Parwal","Pumpkin","Lauki","Torai","Kamal Kakdi","Kathal"],
       fruits: ["Watermelon","Pear","Melon","Plum","Pomegranate","Jamun","Apples","Grapes","Banana","Litchi","Mangoes"]
     };
 
-    /* ---------- split "A/B/C Dish" entries ---------- */
+    /* ---------- split "A/B/C Dish" entries into separate dishes ---------- */
     const SPECIAL_SPLIT = {
       "Stuffed Parathas Paneer/Pyaz/Aloo/Gobhi": ["Paneer Stuffed Paratha","Pyaz Stuffed Paratha","Aloo Stuffed Paratha","Gobhi Stuffed Paratha"],
       "Veg/Peas/Masala/Soya Pulao": ["Veg Pulao","Peas Pulao","Masala Pulao","Soya Pulao"],
@@ -264,7 +247,7 @@
       const key = (name || "").trim();
       if (SPECIAL_SPLIT[key]) return SPECIAL_SPLIT[key].slice();
       if (!key.includes("/")) return [key];
-      const m = key.match(/([A-Za-z]+(?:\/[A-Za-z]+)+)/);
+      const m = key.match(/([A-Za-z]+(?:\/[A-Za-z]+)+)/); // run of word/word/word
       if (!m) return [key];
       const alts = m[1].split("/").map(s => s.trim()).filter(Boolean);
       const before = key.slice(0, m.index).trim();
@@ -292,7 +275,7 @@
       { test: n => /chole|chhole/.test(n) || (/chana/.test(n) && !/kala/.test(n)), label: "Kabuli chana — overnight" },
       { test: n => /bhature|bhatura/.test(n), label: "Set bhatura dough — night before" },
       { test: n => /sabudana/.test(n), label: "Sabudana — 4–5 hrs" },
-      { test: n => /idl|dosa|uttapam|medu|vada/.test(n), label: "Rice + urad — ferment batter" }
+      { test: n => /idl|dosa|uttapam|medu|vada/.test(n), label: "Rice + urad — ferment batter (day ahead)" }
     ];
     function detectSoak(names) { const f = new Map(); names.forEach(raw => { const n = (raw || "").toLowerCase(); SOAK_RULES.forEach(r => { if (r.test(n)) f.set(r.label, true); }); }); return [...f.keys()]; }
 
@@ -324,186 +307,213 @@
       { kw: /dal|kadhi|sambhar|sambar/, item: "Dal", g: 45 },
       { kw: /rice|pulao|pulav|biryani|khichdi|khichadi/, item: "Rice", g: 80 },
       { kw: /roti|paratha|poori|puri|chapati|baati|dhokli/, item: "Atta", g: 60 },
-      { kw: /bhature|bhatura/, item: "Maida", g: 60 },
-      { kw: /raita/, item: "Curd", g: 80 },
-      { kw: /salad/, item: "Onion/Cucumber/Tomato", g: 100 }
+      { kw: /bhature|bhatura/, item: "Maida", g: 60 }
+    ];
+    const PIECE = [
+      { kw: /egg/, item: "Eggs", each: 1.5 },
+      { kw: /bread|sandwich|pav|roll/, item: "Bread / pav", each: 2 }
     ];
     function fmtG(g) { g = Math.round(g / 50) * 50; if (g >= 1000) { const k = g / 1000; return "~" + (Number.isInteger(k) ? k : k.toFixed(1)) + " kg"; } return "~" + g + " g"; }
 
     function deriveGrocery() {
       const m = state.menu, q = state.qty;
-      const mains = [[chosenDish("breakfast"), q.breakfast], [chosenDish("lunch"), q.lunch], [chosenDish("dinner"), q.dinner], [m.extra, Math.max(q.lunch, q.dinner)]];
+      const mains = [[chosenDish("breakfast"), q.breakfast], [chosenDish("lunch"), q.lunch], [chosenDish("dinner"), q.dinner]];
       const grams = {}, pieces = {}; let curryHeads = 0;
       mains.forEach(([dish, cnt]) => {
         if (!dish || dish === "—") return;
         const n = dish.toLowerCase(); const heads = Math.max(1, cnt);
         ING.forEach(r => { if (r.kw.test(n)) grams[r.item] = (grams[r.item] || 0) + r.g * heads; });
-        if (/egg/.test(n)) pieces["Eggs"] = (pieces["Eggs"] || 0) + 1.5 * heads;
-        if (/bread|sandwich|pav|roll/.test(n)) pieces["Bread / pav"] = (pieces["Bread / pav"] || 0) + 2 * heads;
-        if (/papad/.test(n)) pieces["Papad"] = (pieces["Papad"] || 0) + 1 * heads;
+        PIECE.forEach(r => { if (r.kw.test(n)) pieces[r.item] = (pieces[r.item] || 0) + r.each * heads; });
         if (/masala|curry|gravy|kofta|butter|makhani|korma|rajma|chole|dal|kadhi|matar|bhurji|paneer/.test(n)) curryHeads += heads;
-        if (/curd|paratha|rajma|kadhi|raita/.test(n)) grams["Curd"] = (grams["Curd"] || 0) + 40 * heads;
+        if (/curd|paratha|rajma|kadhi/.test(n)) grams["Curd"] = (grams["Curd"] || 0) + 40 * heads;
       });
+      if (m.extra && m.extra !== "—") grams[m.extra] = (grams[m.extra] || 0) + 90 * Math.max(q.lunch, q.dinner);
       if (m.fruit && m.fruit !== "—") pieces[m.fruit] = (pieces[m.fruit] || 0) + Math.max(q.breakfast, q.dinner);
       if (curryHeads) { grams["Onion"] = (grams["Onion"] || 0) + 45 * curryHeads; grams["Tomato"] = (grams["Tomato"] || 0) + 40 * curryHeads; }
       const out = [];
       Object.keys(grams).forEach(k => out.push({ item: k, amt: fmtG(grams[k]) }));
       Object.keys(pieces).forEach(k => out.push({ item: k, amt: Math.round(pieces[k]) + " pc" }));
-      if (curryHeads) out.push({ item: "Aromatics (Ginger, Garlic, Chilli, Lemon, Coriander)", amt: "to taste" });
+      if (curryHeads) out.push({ item: "Ginger-garlic, green chilli, coriander, lemon", amt: "to taste" });
       return out;
     }
 
-    const state = { dayOffset: 1, menu: {}, qty: { ...DEFAULT_QTY }, pref: { breakfast: "light", lunch: "light", dinner: "light" }, rot: null, tab: "group", backend: "local", recent: [] };
-    const ACTIVE_KEY = { breakfast: { light: "bfLight", heavy: "bfHeavy" }, lunch: { light: "lunchLight", heavy: "lunchHeavy" }, dinner: { light: "dinnerLight", heavy: "dinnerHeavy" } };
-    const chosenDish = meal => state.menu[ACTIVE_KEY[meal][state.pref[meal]]] || "—";
-    const chosenList = () => [chosenDish("breakfast"), chosenDish("lunch"), chosenDish("dinner"), state.menu.extra, state.menu.fruit].filter(x => x && x !== "—");
-    
+    const rand = a => a && a.length ? a[Math.floor(Math.random() * a.length)] : "—";
     function isoWeek(d) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); const ys = new Date(Date.UTC(t.getUTCFullYear(), 0, 1)); return Math.ceil((((t - ys) / 86400000) + 1) / 7); }
-    function weekKey(d) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); return t.getUTCFullYear() + "-W" + String(Math.ceil((((t - new Date(Date.UTC(t.getUTCFullYear(), 0, 1))) / 86400000) + 1) / 7)).padStart(2, "0"); }
+    function isoYear(d) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); return t.getUTCFullYear(); }
+    function weekKey(d) { return isoYear(d) + "-W" + String(isoWeek(d)).padStart(2, "0"); }
+    function mondayOf(d) { const x = new Date(d); const day = (x.getDay() + 6) % 7; x.setDate(x.getDate() - day); return x.toISOString().slice(0, 10); }
     function targetDate() { const d = new Date(); d.setDate(d.getDate() + state.dayOffset); return d; }
     const fmtLong = d => d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
 
-    function rollSlot(k) {
-      const map = { bfLight: () => DATA.breakfast.light, bfHeavy: () => DATA.breakfast.heavy, lunchLight: () => DATA.lunch.light, lunchHeavy: () => DATA.lunch.heavy, dinnerLight: () => DATA.dinner.light, dinnerHeavy: () => DATA.dinner.heavy, extra: () => DATA.extras, fruit: () => DATA.fruits };
-      const pool = map[k]();
-      const filtered = pool.filter(d => !state.recent.some(r => r.toLowerCase() === d.toLowerCase()));
-      state.menu[k] = (filtered.length ? filtered : pool)[Math.floor(Math.random() * (filtered.length || pool.length))];
-      const i = document.querySelector(`input[data-k="${k}"]`); if (i) i.value = state.menu[k];
+    function pick(counts, last) {
+      const min = Math.min(...ROSTER.map(p => counts[p] || 0));
+      const atMin = ROSTER.filter(p => (counts[p] || 0) === min);
+      if (atMin.length > 1 && last && atMin.includes(last)) { const alt = atMin.find(p => p !== last); if (alt) return alt; }
+      return atMin[0];
     }
-    function regenAll() { ["bfLight","bfHeavy","lunchLight","lunchHeavy","dinnerLight","dinnerHeavy","extra","fruit"].forEach(rollSlot); render(); }
-    function rollMeal(meal) { ["light","heavy"].forEach(p => rollSlot(ACTIVE_KEY[meal][p])); render(); }
+    function localState() {
+      const wk = isoWeek(new Date()); const counts = {}; ROSTER.forEach(p => counts[p] = 0);
+      let last = null, cur = ROSTER[0];
+      for (let i = 1; i <= wk; i++) { const m = pick(counts, last); counts[m]++; last = m; cur = m; }
+      return { manager: cur, counts, swapped: false };
+    }
+
+    const state = { dayOffset: 1, menu: {}, qty: { ...DEFAULT_QTY }, pref: { breakfast: "light", lunch: "light", dinner: "light" }, rot: null, tab: "group", backend: "local" };
+    const ACTIVE_KEY = { breakfast: { light: "bfLight", heavy: "bfHeavy" }, lunch: { light: "lunchLight", heavy: "lunchHeavy" }, dinner: { light: "dinnerLight", heavy: "dinnerHeavy" } };
+    const chosenDish = meal => state.menu[ACTIVE_KEY[meal][state.pref[meal]]] || "—";
+    const chosenList = () => [chosenDish("breakfast"), chosenDish("lunch"), chosenDish("dinner"), state.menu.extra, state.menu.fruit].filter(x => x && x !== "—");
+    const $ = s => document.querySelector(s);
+    const slots = ["bfLight","bfHeavy","lunchLight","lunchHeavy","dinnerLight","dinnerHeavy","extra","fruit"];
+
+    function rollSlot(k) {
+      const map = { bfLight: () => rand(DATA.breakfast.light), bfHeavy: () => rand(DATA.breakfast.heavy), lunchLight: () => rand(DATA.lunch.light), lunchHeavy: () => rand(DATA.lunch.heavy), dinnerLight: () => rand(DATA.dinner.light), dinnerHeavy: () => rand(DATA.dinner.heavy), extra: () => rand(DATA.extras), fruit: () => rand(DATA.fruits) };
+      state.menu[k] = map[k](); const i = document.querySelector(`input[data-k="${k}"]`); if (i) i.value = state.menu[k];
+    }
+    function regenAll() { slots.forEach(rollSlot); render(); }
+    const MEAL_SLOTS = { breakfast: ["bfLight","bfHeavy"], lunch: ["lunchLight","lunchHeavy"], dinner: ["dinnerLight","dinnerHeavy"] };
+    function rollMeal(meal) { (MEAL_SLOTS[meal] || []).forEach(rollSlot); render(); }
 
     function jsonp(params) {
       return new Promise((res, rej) => {
-        if (!WEBAPP_URL) return rej("no-backend");
+        if (!WEBAPP_URL) return rej(new Error("no-backend"));
         const cb = "_mm" + Math.random().toString(36).slice(2);
         window[cb] = d => { res(d); cleanup(); };
         const s = document.createElement("script");
         s.src = WEBAPP_URL + "?" + new URLSearchParams({ ...params, callback: cb }).toString();
-        s.onerror = () => { rej("net"); cleanup(); };
-        const t = setTimeout(() => { rej("timeout"); cleanup(); }, 8000);
+        s.onerror = () => { rej(new Error("net")); cleanup(); };
+        const t = setTimeout(() => { rej(new Error("timeout")); cleanup(); }, 7000);
         function cleanup() { delete window[cb]; s.remove(); clearTimeout(t); }
         document.body.appendChild(s);
       });
     }
-
-    async function logMenu() {
-      if (state.backend !== 'live') return;
-      const d = targetDate().toISOString().slice(0, 10);
-      try { await jsonp({ action: "log", date: d, manager: state.rot.manager, bf: chosenDish("breakfast"), lunch: chosenDish("lunch"), dinner: chosenDish("dinner"), side: state.menu.extra, fruit: state.menu.fruit, b_qty: state.qty.breakfast, l_qty: state.qty.lunch, d_qty: state.qty.dinner }); } catch (e) {}
-    }
-
-    async function loadState() {
+    async function loadRotation() {
       const d = new Date();
       try {
-        const r = await jsonp({ action: "state", week: weekKey(d), start: d.toISOString().slice(0, 10) });
-        if (r && r.ok) {
-          if (r.roster) ROSTER = r.roster;
-          state.rot = { manager: r.manager, counts: r.counts, swapped: false };
-          state.recent = r.recent || [];
-          state.backend = "live";
-        }
-      } catch (e) {
-        const wk = isoWeek(d); const counts = {}; ROSTER.forEach(p => counts[p] = 0);
-        let cur = ROSTER[wk % ROSTER.length];
-        state.rot = { manager: cur, counts, swapped: false }; state.backend = "local";
+        const r = await jsonp({ action: "state", week: weekKey(d), start: mondayOf(d) });
+        if (r && r.ok) { if (r.roster) ROSTER = r.roster; state.rot = { manager: r.manager, counts: r.counts, swapped: false }; state.backend = "live"; return; }
+        throw new Error("bad");
+      } catch (e) { state.rot = localState(); state.backend = "local"; }
+    }
+    async function doSwap(newM, reason) {
+      const d = new Date();
+      if (state.backend === "live") {
+        try { const r = await jsonp({ action: "swap", week: weekKey(d), manager: newM, note: reason || "", start: mondayOf(d) }); if (r && r.ok) { state.rot = { manager: r.manager, counts: r.counts, swapped: true }; return true; } } catch (e) {}
       }
-      render();
+      const orig = state.rot.manager;
+      state.rot.counts[orig] = Math.max(0, (state.rot.counts[orig] || 0) - 1);
+      state.rot.counts[newM] = (state.rot.counts[newM] || 0) + 1;
+      state.rot.manager = newM; state.rot.swapped = true; return true;
     }
 
     function buildGroup() {
       const d = targetDate(), m = state.menu, q = state.qty;
+      const dayWord = state.dayOffset === 0 ? "today" : "tomorrow";
+      const tag = meal => state.pref[meal] === "heavy" ? "heavy" : "light";
       let t = `🍱 *Mess Menu — ${fmtLong(d)}*\n\n`;
       t += `☕ *Breakfast* (${q.breakfast}) — ${chosenDish("breakfast")}\n`;
       t += `🍛 *Lunch* (${q.lunch}) — ${chosenDish("lunch")}\n`;
       t += `🥘 *Dinner* (${q.dinner}) — ${chosenDish("dinner")}\n\n`;
       t += `🥗 Side: ${m.extra}   🍎 Fruit: ${m.fruit}\n\n`;
-      t += `📋 *Headcount for tomorrow* — default B:${q.breakfast} · L:${q.lunch} · D:${q.dinner}\nReply only if you're in/out:\n• Lunch: ✅ / ❌\n• Dinner: ✅ / ❌\n`;
+      t += `📋 *Headcount for ${dayWord}* — default B:${q.breakfast} · L:${q.lunch} · D:${q.dinner}\nReply only if you're in/out:\n• Lunch: ✅ / ❌\n• Dinner: ✅ / ❌\n`;
       const soak = detectSoak(chosenList());
-      if (document.getElementById('incl-soak').checked && soak.length) t += `\n🧑‍🍳 _Cook: please soak — ${soak.join("; ")}._\n`;
+      if ($('#incl-soak').checked && soak.length) t += `\n🧑‍🍳 _Cook: please soak — ${soak.join("; ")}._\n`;
       t += `\n— Mess Manager: ${state.rot.manager}`;
       return t;
     }
     function buildCook() {
       const d = targetDate(), m = state.menu, q = state.qty;
       let t = `🧑‍🍳 *Cook plan — ${fmtLong(d)}*\n\n`;
-      t += `Portions → B: ${q.breakfast} · L: ${q.lunch} · D: ${q.dinner}\n\n`;
+      t += `Portions → Breakfast: ${q.breakfast} · Lunch: ${q.lunch} · Dinner: ${q.dinner}\n\n`;
       t += `☕ Breakfast: ${chosenDish("breakfast")}\n`;
       t += `🍛 Lunch: ${chosenDish("lunch")}\n`;
       t += `🥘 Dinner: ${chosenDish("dinner")}\n`;
       t += `🥗 Side: ${m.extra}\n\n`;
       const soak = detectSoak(chosenList());
       t += soak.length ? `🌙 *Soak tonight:* ${soak.join("; ")}.\n\n` : `🌙 Nothing to soak tonight.\n\n`;
-      t += `Pantry check: dal, rice, atta, condiments — flag if low.\n— ${state.rot.manager}`;
+      t += `Pantry check: dal, rice, atta, oil, condiments — flag if low.\n— ${state.rot.manager}`;
+      return t;
+    }
+    function buildGrocery() {
+      const d = targetDate(), list = deriveGrocery();
+      let t = `🛒 *Grocery / top-up — ${fmtLong(d)}*\n\n`;
+      t += list.map(x => `• ${x.item} — ${x.amt}`).join("\n");
+      t += `\n\n_Estimate from today's menu — verify against stock._`;
       return t;
     }
     function currentMessage() { return state.tab === "cook" ? buildCook() : state.tab === "grocery" ? buildGrocery() : buildGroup(); }
-    function waToHtml(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\*(.+?)\*/g, "<b>$1</b>").replace(/_(.+?)_/g, "<i>$1</i>"); }
+    function waToHtml(s) { const esc = s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); return esc.replace(/\*(.+?)\*/g, "<b>$1</b>").replace(/_(.+?)_/g, "<i>$1</i>"); }
 
+    function renderRoster() {
+      const r = state.rot; const pills = $('#roster-pills'); pills.innerHTML = "";
+      ROSTER.forEach(p => { const on = p === r.manager; const el = document.createElement("span"); el.className = "pill" + (on ? " on" : ""); el.innerHTML = `<span class="num">${r.counts[p] || 0}</span>${p}${on ? " · on duty" : ""}`; pills.appendChild(el); });
+      $('#duty-line').innerHTML = `<b>${r.manager}</b> is mess manager this week (${weekKey(new Date())}). Numbers show weeks served — lowest goes next.` + (r.swapped ? " <i>Swapped.</i>" : "");
+      const sel = $('#swap-who'); sel.innerHTML = ""; ROSTER.filter(p => p !== r.manager).forEach(p => { const o = document.createElement("option"); o.value = p; o.textContent = p; sel.appendChild(o); });
+    }
+    function renderGrocery() { const ul = $('#grocery'); const list = deriveGrocery(); ul.innerHTML = list.length ? list.map(x => `<li><span>${x.item}</span><span class="amt">${x.amt}</span></li>`).join("") : `<li><span>Nothing flagged — generate a menu.</span></li>`; }
+    function renderSelection() {
+      document.querySelectorAll('.slot.opt').forEach(el => {
+        el.classList.toggle('sel', state.pref[el.dataset.meal] === el.dataset.pref);
+      });
+    }
     function render() {
       if (!state.rot) return;
-      const r = state.rot; const pills = document.getElementById('roster-pills'); pills.innerHTML = "";
-      ROSTER.forEach(p => { const on = p === r.manager; pills.innerHTML += `<span class="pill ${on ? 'on' : ''}"><span class="num">${r.counts[p] || 0}</span>${p}${on ? ' · on duty' : ''}</span>`; });
-      document.getElementById('duty-line').innerHTML = `<b>${r.manager}</b> is mess manager this week. Lowest counts go next.`;
-      
-      document.querySelectorAll('.slot.opt').forEach(el => el.classList.toggle('sel', state.pref[el.dataset.meal] === el.dataset.pref));
-      
+      renderRoster(); renderGrocery(); renderSelection();
       const soak = detectSoak(chosenList());
-      document.getElementById('soak-chips').innerHTML = soak.length ? soak.map(s => `<span class="chip">🌙 ${s}</span>`).join("") : `<span class="chip calm">Nothing needs soaking 🎉</span>`;
-      
-      const ul = document.getElementById('grocery'); const list = deriveGrocery();
-      ul.innerHTML = list.map(x => `<li><span>${x.item}</span><span class="amt">${x.amt}</span></li>`).join("");
-      
+      $('#soak-chips').innerHTML = soak.length ? soak.map(s => `<span class="chip">🌙 ${s}</span>`).join("") : `<span class="chip calm">Nothing needs soaking 🎉</span>`;
       const msg = currentMessage();
-      document.getElementById('msg').innerHTML = waToHtml(msg);
-      document.getElementById('bubble-time').textContent = new Date().toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' });
-      document.getElementById('wa-share').href = "https://wa.me/?text=" + encodeURIComponent(msg);
-      document.getElementById('copy').dataset.msg = msg;
-      
-      const status = document.getElementById('status');
-      status.innerHTML = `<span class="dot-ind ${state.backend === 'live' ? 'live' : 'local'}"></span>Rotation: <b>${state.backend === 'live' ? 'Synced to Sheet' : 'Local (check WEBAPP_URL)'}</b><br><span class="dot-ind ${DATA._live ? 'live' : 'local'}"></span>Dishes: <b>${DATA._live ? 'Live' : 'Embedded'}</b>`;
-
-      if (state.recent.length) {
-        document.getElementById('recent-wrap').style.display = 'block';
-        document.getElementById('recent-items').innerHTML = state.recent.map(d => `<span class="recent-item">${d}</span>`).join("");
-      }
+      $('#msg').innerHTML = waToHtml(msg);
+      $('#bubble-time').textContent = new Date().toLocaleTimeString('en-IN', { hour: 'numeric', minute: '2-digit' });
+      $('#wa-share').href = "https://wa.me/?text=" + encodeURIComponent(msg);
+      $('#copy').dataset.msg = msg;
+      $('#wa-label').textContent = state.tab === "cook" ? "Send to cook" : state.tab === "grocery" ? "Share grocery list" : "Share to WhatsApp";
+      const d = targetDate();
+      $('#tagline').textContent = `Planning ${state.dayOffset === 0 ? "today" : "tomorrow"} · ${fmtLong(d)}`;
+      $('#status').innerHTML = `<span class="dot-ind ${state.backend === 'live' ? 'live' : 'local'}"></span>Rotation: <b>${state.backend === 'live' ? 'synced to Google Sheet' : 'local only (set WEBAPP_URL to persist)'}</b><br><span class="dot-ind ${DATA._live ? 'live' : 'local'}"></span>Dishes: <b>${DATA._live ? 'live from sheet' : 'embedded list'}</b>`;
     }
 
+    function parseCSV(text) { const rows = []; let row = [], cell = "", q = false; for (let i = 0; i < text.length; i++) { const c = text[i], nx = text[i + 1]; if (c === '"') { if (q && nx === '"') { cell += '"'; i++; } else q = !q; } else if (c === ',' && !q) { row.push(cell); cell = ""; } else if ((c === '\n' || c === '\r') && !q) { if (c === '\r' && nx === '\n') i++; if (row.length || cell) { row.push(cell); rows.push(row); } row = []; cell = ""; } else cell += c; } if (row.length || cell) { row.push(cell); rows.push(row); } return rows; }
     async function syncDishes() {
       try {
         const res = await fetch(CSV_URL); if (!res.ok) throw 0;
-        const text = await res.text();
-        const rows = text.split('\n').map(r => r.split(',').map(c => c.replace(/^"|"$/g, "").trim())); rows.shift();
-        const f = { breakfast: { light: [], heavy: [] }, lunch: { light: [], heavy: [] }, dinner: { light: [], heavy: [] }, extras: ACCOMPANIMENTS, fruits: [] };
-        rows.forEach(r => {
-          const name = r[0], cat = (r[1] || "").toLowerCase(), type = (r[2] || "").toLowerCase();
-          if (!name) return;
-          if (["breakfast","lunch","dinner"].includes(cat)) f[cat][type === "heavy" ? "heavy" : "light"].push(name);
-          else if (cat === "fruit") f.fruits.push(name);
-        });
-        if (f.breakfast.light.length) { f._live = true; DATA = normalizeData(f); regenAll(); }
+        const rows = parseCSV(await res.text()); rows.shift();
+        const f = { breakfast: { light: [], heavy: [] }, lunch: { light: [], heavy: [] }, dinner: { light: [], heavy: [] }, extras: [], fruits: [] };
+        rows.forEach(r => { if (r.length < 2) return; const name = (r[0] || "").replace(/^"|"$/g, "").trim(); const cat = (r[1] || "").replace(/^"|"$/g, "").toLowerCase().trim(); const type = (r[2] || "").replace(/^"|"$/g, "").toLowerCase().trim(); if (!name) return; if (["breakfast","lunch","dinner"].includes(cat)) { if (type === "light") f[cat].light.push(name); else if (type === "heavy") f[cat].heavy.push(name); } else if (cat === "side") f.extras.push(name); else if (cat === "fruit") f.fruits.push(name); });
+        if (f.breakfast.light.length && f.lunch.heavy.length) { f._live = true; DATA = normalizeData(f); regenAll(); }
       } catch (e) {}
       render();
     }
 
-    document.querySelectorAll('.dice').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); rollSlot(b.dataset.roll); render(); }));
+    document.querySelectorAll('.dice').forEach(b => b.addEventListener('click', () => { rollSlot(b.dataset.roll); render(); }));
     document.querySelectorAll('.meal-roll').forEach(b => b.addEventListener('click', () => rollMeal(b.dataset.meal)));
-    document.querySelectorAll('.slot.opt').forEach(row => row.addEventListener('click', e => { if (!e.target.closest('input, .dice')) { state.pref[row.dataset.meal] = row.dataset.pref; render(); } }));
+    document.querySelectorAll('.slot.opt').forEach(row => row.addEventListener('click', e => {
+      if (e.target.closest('input, .dice')) return; // don't hijack typing or rerolling
+      state.pref[row.dataset.meal] = row.dataset.pref; render();
+    }));
     document.querySelectorAll('input.dish').forEach(i => i.addEventListener('input', () => { state.menu[i.dataset.k] = i.value; render(); }));
-    document.getElementById('regen').addEventListener('click', regenAll);
-    document.querySelectorAll('.qty button').forEach(btn => btn.addEventListener('click', () => { const m = btn.closest('.qty').dataset.meal; state.qty[m] = Math.max(0, state.qty[m] + (+btn.dataset.d)); btn.closest('.qty').querySelector('.qv').textContent = state.qty[m]; render(); }));
+    $('#regen').addEventListener('click', regenAll);
+    $('#incl-soak').addEventListener('change', render);
+    document.querySelectorAll('.qty').forEach(q => q.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => { const meal = q.dataset.meal; const next = Math.max(0, Math.min(30, state.qty[meal] + (+btn.dataset.d))); state.qty[meal] = next; q.querySelector('.qv').textContent = next; render(); })));
     document.querySelectorAll('#day-seg button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('#day-seg button').forEach(x => x.classList.remove('active')); b.classList.add('active'); state.dayOffset = +b.dataset.day; render(); }));
     document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.tabs button').forEach(x => x.classList.remove('active')); b.classList.add('active'); state.tab = b.dataset.tab; render(); }));
-    document.getElementById('wa-share').addEventListener('click', logMenu);
-    document.getElementById('copy').addEventListener('click', async () => {
-      const msg = document.getElementById('copy').dataset.msg;
-      await navigator.clipboard.writeText(msg);
-      document.getElementById('copied').classList.add('show'); setTimeout(() => document.getElementById('copied').classList.remove('show'), 2000);
-      logMenu();
+    $('#swap-toggle').addEventListener('click', () => $('#swap-panel').classList.toggle('open'));
+    $('#swap-confirm').addEventListener('click', async () => {
+      const who = $('#swap-who').value; const reason = $('#swap-reason').value.trim(); if (!who) return;
+      $('#swap-confirm').disabled = true; $('#swap-confirm').textContent = "Saving…";
+      await doSwap(who, reason);
+      $('#swap-confirm').disabled = false; $('#swap-confirm').textContent = "Confirm swap";
+      $('#swap-panel').classList.remove('open'); $('#swap-reason').value = ""; render();
+    });
+    $('#copy').addEventListener('click', async () => {
+      const msg = $('#copy').dataset.msg || "";
+      try { await navigator.clipboard.writeText(msg); } catch (e) { const ta = document.createElement('textarea'); ta.value = msg; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+      const c = $('#copied'); c.classList.add('show'); setTimeout(() => c.classList.remove('show'), 1800);
     });
 
     (async function init() {
-      await loadState(); DATA = normalizeData(DATA); regenAll(); syncDishes();
+      $('.qty[data-meal="breakfast"] .qv').textContent = DEFAULT_QTY.breakfast;
+      $('.qty[data-meal="lunch"] .qv').textContent = DEFAULT_QTY.lunch;
+      $('.qty[data-meal="dinner"] .qv').textContent = DEFAULT_QTY.dinner;
+      await loadRotation(); DATA = normalizeData(DATA); regenAll(); syncDishes();
     })();
   </script>
 </body>
